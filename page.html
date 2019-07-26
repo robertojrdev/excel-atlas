@@ -12,265 +12,370 @@
 
     <!-- PAGE -->
     <div class="page-conatainer">
-        <div id="map-container" class="">
-            <div id="map"></div>
-            <div class="filters-container">
-                <div class="filters-inside-container">
-                    <div class="slider-container">
+            <div id="map-container" class="">
+                <div id="map"></div>
+                <div class="filters-container">
+                    <div class="filters-inside-container">
+                        <h2 class="center-txt title" style="margin-top: 0px">Filters</h2>
                         <h3>Range</h3>
-                        <div id="slider-range" class="mt-2"></div>
-                        <div class="center-column">
-                            <input type="text" id="amount" class="mt-1 center-txt">
+                        <div class="slider-container">
+                            <div id="slider-range" class="mt-2"></div>
+                            <div class="center-column">
+                                <input type="text" id="amount" class="mt-1 center-txt">
+                            </div>
                         </div>
-                    </div>
-                    <div class="checkbox-container">
-                        <input type="checkbox" name="Clinic1" id="Clinic1">
-                        <label for="Clinic1">Fancy lalala</label>
+                        <h3>Esthetic clinic type</h3>
+                        <div class="checkbox-container">
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk"/>
+                                    <label for="myChk">High-tech invasive intervention</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk2"/>
+                                    <label for="myChk2">High-tech non-invasive intervention</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk3"/>
+                                    <label for="myChk3">Low tech</label>
+                            </div>
+                        </div>
+                        <div class="checkbox-inside-container solo">
+                                <input type="checkbox" id="myChk4"/>
+                                <label for="myChk4"><h3>Clinicas com circuitos turísticos</h3></label>
+                        </div>
+                        <h3>Esthetic clinic type</h3>
+                        <div class="checkbox-container">
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk"/>
+                                    <label for="myChk">Dermatologia</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk2"/>
+                                    <label for="myChk2">Mommy make-over</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk3"/>
+                                    <label for="myChk3">Anti-envelhecimento</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk3"/>
+                                    <label for="myChk3">Genital surgery</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                    <input type="checkbox" id="myChk3"/>
+                                    <label for="myChk3">Ethnic cosmetics</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="filters-container" class="ml-2 center-column">
-            <p id="filter-title" class="mt-0">Aesthetic clinic type</p>
-            <div id="clinic-type" class="filter outline-1">
-                <input type="checkbox" name="clinic-type" value="high-tech whatever"> high-tech whatever<br>
-                <input type="checkbox" name="clinic-type" value="high-tech whatever"> high-tech whatever<br>
-                <input type="checkbox" name="clinic-type" value="high-tech whatever"> high-tech whatever<br>
-            </div>
-            <p id="filter-title" class="mt-2">Tipologia de intervenção</p>
-            <div id="typology" class="filter outline-1">
-                <input type="checkbox" name="clinic-type" value="high-tech whatever"> high-tech whatever<br>
-                <input type="checkbox" name="clinic-type" value="high-tech whatever"> high-tech whatever<br>
-                <input type="checkbox" name="clinic-type" value="high-tech whatever"> high-tech whatever<br>
-            </div>
-        </div>
-    </div>
-    <div id="fake-container"></div>
-    <!-- PAGE -->
-
-
-
-
-    <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHsgSqYkaBH9V3RPj_Qj1wzmc14j_nR1U&callback=initMap" async defer></script>
-    <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: -28.024, lng: 140.887 },
-                zoom: 3
-            });
-
-            placeMarkers();
-        }
-
-        function placeMarkers() {
-            //this will identify the markers on map
-            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            
-            var markers = locations.map(function(location, i) {
-                return new google.maps.Marker({
-                    position: location,
-                    label: labels[i % labels.length]
+        <div id="fake-container"></div>
+        <!-- PAGE -->
+    
+    
+    
+    
+        <!-- SCRIPTS -->
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHsgSqYkaBH9V3RPj_Qj1wzmc14j_nR1U&callback=initMap" async defer></script>
+        <script>
+            var map;
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: { lat: -28.024, lng: 140.887 },
+                    zoom: 3
+                });
+    
+                placeMarkers();
+            }
+    
+            function placeMarkers() {
+                //this will identify the markers on map
+                var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                
+                var markers = locations.map(function(location, i) {
+                    return new google.maps.Marker({
+                        position: location,
+                        label: labels[i % labels.length]
+                    });
+                });
+    
+                var markerCluster = new MarkerClusterer(map, markers,
+                {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+            }
+    
+            var locations = [
+            {lat: -31.563910, lng: 147.154312},
+            {lat: -33.718234, lng: 150.363181},
+            {lat: -33.727111, lng: 150.371124},
+            {lat: -33.848588, lng: 151.209834},
+            {lat: -33.851702, lng: 151.216968},
+            {lat: -34.671264, lng: 150.863657},
+            {lat: -35.304724, lng: 148.662905},
+            {lat: -36.817685, lng: 175.699196},
+            {lat: -36.828611, lng: 175.790222},
+            {lat: -37.750000, lng: 145.116667},
+            {lat: -37.759859, lng: 145.128708},
+            {lat: -37.765015, lng: 145.133858},
+            {lat: -37.770104, lng: 145.143299},
+            {lat: -37.773700, lng: 145.145187},
+            {lat: -37.774785, lng: 145.137978},
+            {lat: -37.819616, lng: 144.968119},
+            {lat: -38.330766, lng: 144.695692},
+            {lat: -39.927193, lng: 175.053218},
+            {lat: -41.330162, lng: 174.865694},
+            {lat: -42.734358, lng: 147.439506},
+            {lat: -42.734358, lng: 147.501315},
+            {lat: -42.735258, lng: 147.438000},
+            {lat: -43.999792, lng: 170.463352}]
+    
+            //SLIDER
+            $(function () {
+                var min = 0;
+                var max = 500;
+                $("#amount").val(min + " - " + max); //set text value
+    
+                $("#slider-range").slider({
+                    range: true,
+                    min: min,
+                    max: max,
+                    values: [min, max],
+                    slide: function (event, ui) {
+                        $("#amount").val(ui.values[0] + " - " + ui.values[1]);
+                    }
                 });
             });
-
-            var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-        }
-
-        var locations = [
-        {lat: -31.563910, lng: 147.154312},
-        {lat: -33.718234, lng: 150.363181},
-        {lat: -33.727111, lng: 150.371124},
-        {lat: -33.848588, lng: 151.209834},
-        {lat: -33.851702, lng: 151.216968},
-        {lat: -34.671264, lng: 150.863657},
-        {lat: -35.304724, lng: 148.662905},
-        {lat: -36.817685, lng: 175.699196},
-        {lat: -36.828611, lng: 175.790222},
-        {lat: -37.750000, lng: 145.116667},
-        {lat: -37.759859, lng: 145.128708},
-        {lat: -37.765015, lng: 145.133858},
-        {lat: -37.770104, lng: 145.143299},
-        {lat: -37.773700, lng: 145.145187},
-        {lat: -37.774785, lng: 145.137978},
-        {lat: -37.819616, lng: 144.968119},
-        {lat: -38.330766, lng: 144.695692},
-        {lat: -39.927193, lng: 175.053218},
-        {lat: -41.330162, lng: 174.865694},
-        {lat: -42.734358, lng: 147.439506},
-        {lat: -42.734358, lng: 147.501315},
-        {lat: -42.735258, lng: 147.438000},
-        {lat: -43.999792, lng: 170.463352}]
-
-        //SLIDER
-        $(function () {
-            var min = 0;
-            var max = 500;
-            $("#amount").val(min + " - " + max); //set text value
-
-            $("#slider-range").slider({
-                range: true,
-                min: min,
-                max: max,
-                values: [min, max],
-                slide: function (event, ui) {
-                    $("#amount").val(ui.values[0] + " - " + ui.values[1]);
-                }
-            });
-        });
-        //SLIDER
-    </script>
-    <!-- SCRIPTS -->
-
-    <!-- STYLES -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-                     * element that contains the map. */
-
-        .filters-container {
-            font-family: inherit;
-            position: absolute;
-            right: 35px;
-            top: 35px;
-            width: 500px;
-            min-height: 500px;
-            height: auto;
-            z-index: 999;
-            background: #fff;
-            display: flex;
-            justify-content: center;   
-        }
-
-        .filters-inside-container {
-            width: 90%;
-            margin-top: 30px;
-        }
-
-        #fake-container {
-        }
-
-        #map-container {
-            height: 100%;
-            width: 100%;
-            min-height: 100vh;
-        }
-
-        #map {
-            height: 100%;
-            width: 100%;
-            min-height: 100vh;
-        }
-
-        #filters-container {
-            margin: 2em 0 0 2em;
-            height: auto;
-            width: 50%;
-        }
-
-        .filter {
-            width: 50%;
-        }
-
-        #clinic-type {}
-
-        #typology {}
-
-        body,
-        html,
-        .page-conatainer {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: inherit;
-        }
-
-        .page-conatainer {
-            /* display: flex; */
-        }
-
-        #filter-title {
-            margin-top: 1;
-            margin-bottom: 0.5em;
-        }
-
-        .mt-0 {
-            margin-top: 0em;
-        }
-        .mt-1 {
-            margin-top: 1em;
-        }
-        .mt-2 {
-            margin-top: 2em;
-        }
-        .ml-2 {
-            margin-left: 2em;
-        }
-
-        .outline-1 {
-            border-style: solid;
-            border-width: 1px;
-            border-color: black;
-        }
-
-        .center-column
-        {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .center-txt
-        {
-            text-align: center;
-        }
-
-        input#amount {
-            border: none;
-        }
-
-        .ui-widget.ui-widget-content {
-            border: none;
-        }
-
-                /* stylus-based screens */
-        @media (hover: none) and (pointer: fine) {
+            //SLIDER
+        </script>
+        <!-- SCRIPTS -->
+    
+        <!-- STYLES -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+                         * element that contains the map. */
+    
+            * {
+                font-family: inherit;
+            }
+    
+            .filters-container {
+                font-family: inherit;
+                position: absolute;
+                right: 35px;
+                top: 35px;
+                width: 500px;
+                min-height: 500px;
+                height: auto;
+                z-index: 999;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                -webkit-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.2);
+                -moz-box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.2);
+                box-shadow: 0px 0px 13px 0px rgba(0,0,0,0.2);
+            }
+    
+            .filters-inside-container {
+                width: 84%;
+                margin-top: 30px;
+                padding-bottom: 30px;
+            }
+    
+            #fake-container {
+            }
+    
             #map-container {
                 height: 100%;
                 width: 100%;
                 min-height: 100vh;
-                min-width: 100vw;
-                position: absolute;
-                overflow-x: hidden;
-                top: 0;
-                left: 0;
-                margin-top: -62px;
-                margin-left: -28px;
             }
-
+    
             #map {
-                overflow: hidden;
-                position: relative;
-            }
-
-            #fake-container {
+                height: 100%;
+                width: 100%;
                 min-height: 100vh;
             }
-
-            .filters-container {
-                display: none;
+    
+            #filters-container {
+                margin: 2em 0 0 2em;
+                height: auto;
+                width: 50%;
             }
-        }
+    
+            .filter {
+                width: 50%;
+            }
+    
+            #clinic-type {}
+    
+            #typology {}
+    
+            body,
+            html,
+            .page-conatainer {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                font-family: inherit;
+            }
+    
+            .page-conatainer {
+                /* display: flex; */
+            }
+    
+            #filter-title {
+                margin-top: 1;
+                margin-bottom: 0.5em;
+            }
+    
+            .mt-0 {
+                margin-top: 0em;
+            }
+            .mt-1 {
+                margin-top: 1em;
+            }
+            .mt-2 {
+                margin-top: 2em;
+            }
+            .ml-2 {
+                margin-left: 2em;
+            }
+    
+            .title {
+                text-transform: uppercase;
+                font-size: 1.6em;
+            }
+    
+            .outline-1 {
+                border-style: solid;
+                border-width: 1px;
+                border-color: black;
+            }
+    
+            .center-column
+            {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+    
+            .center-txt
+            {
+                text-align: center;
+            }
+    
+            input#amount {
+                border: none;
+            }
+    
+            input[type='checkbox'] {
+                border: none !important;
+                background: none;
+                padding: 0;
+                margin: 0;
+                position: relative;
+                outline: 2px solid #707070 !important;
+                width: 25px;
+                height: 25px;
+                -moz-appearance:none;
+                -webkit-appearance:none;
+                -o-appearance:none;
+                transition: .1s;
+                vertical-align: middle;
+            }
+    
+            label {
+                padding-left: 40px;
+                margin-top: -27px;
+                line-height: 27px;
+                display: block;
+                font-family: ff-meta-serif-web-pro;
+                  color: #585858;
+            }
+    
+            input[type='checkbox']:checked {
+                transition: .1s;
+                background: #707070;
+            }
+    
+            .checkbox-container {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+            }
+    
+            .checkbox-inside-container {
+                width: 100%;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
 
+            .solo h3 {
+                margin-top: -20px;
+            }
 
-    </style>
-    <!-- STYLES -->
+            .solo {
+                margin-top: 20px;
+                margin-bottom: 0px;
+            }
+    
+            .ui-widget.ui-widget-content {
+                height: 1px;
+                background: #c1c1c1;
+                border-radius: 0;
+            }
+    
+            .ui-slider-horizontal .ui-slider-range {
+                top: -1px;
+                height: 100%;
+                background: #707070;
+                border: 1px solid #707070;
+            }
+    
+            span.ui-slider-handle.ui-corner-all.ui-state-default {
+                border-radius: 90px;
+                border: 2px solid #707070;
+                width: 15px;
+                height: 15px;
+                top: -9px;
+            }
+    
+                    /* stylus-based screens */
+            @media (hover: none) and (pointer: fine) {
+                #map-container {
+                    height: 100%;
+                    width: 100%;
+                    min-height: 100vh;
+                    min-width: 100vw;
+                    position: absolute;
+                    overflow-x: hidden;
+                    top: 0;
+                    left: 0;
+                    margin-top: -62px;
+                    margin-left: -28px;
+                }
+    
+                #map {
+                    overflow: hidden;
+                    position: relative;
+                }
+    
+                #fake-container {
+                    min-height: 100vh;
+                }
+    
+                .filters-container {
+                    display: none;
+                }
+            }
+    
+    
+        </style>
+        <!-- STYLES -->
 </body>
 
 </html>
