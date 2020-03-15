@@ -34,7 +34,7 @@
                     <h3>Esthetic clinic type</h3>
                     <div class="checkbox-container">
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="myChk" />
+                            <input type="checkbox" id="myChk" class="" />
                             <label for="myChk">High-tech invasive intervention</label>
                         </div>
                         <div class="checkbox-inside-container">
@@ -69,17 +69,18 @@
                             <label for="myChk3">Anti-envelhecimento</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="myChk3" />
+                            <input type="checkbox" id="myChk4" />
                             <label for="myChk3">Genital surgery</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="myChk3" />
+                            <input type="checkbox" id="myChk5" />
                             <label for="myChk3">Ethnic cosmetics</label>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <!-- END OF FILTERS CONTAINER -->
+            <!-- DESCRIPTION CONTAINER -->
             <div class="description-container">
                 <div class="img-container">
                     <img class="img-slider"
@@ -90,15 +91,15 @@
                     <h2 class="clinic-name">Clínica Casaute</h2>
                     <div class="info-item">
                         <i class="fas fa-globe-americas"></i>
-                        <p>facebook.com</p>
+                        <p id="clinic-website">facebook.com</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone-alt"></i>
-                        <p>+351 254 325 369</p>
+                        <p id="clinic-phone">+351 254 325 369</p>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <p>Rua bue da fixe, 35, Bairro Alto, Lisboa</p>
+                        <p id="clinic-adress">Rua bue da fixe, 35, Bairro Alto, Lisboa</p>
                     </div>
                 </div>
 
@@ -106,23 +107,23 @@
 
                 <div class="description-block">
                     <div class="checkbox-inside-container">
-                        <input type="checkbox" id="myChk" />
+                        <input type="checkbox" id="has-dermatology" class="fake-checkbox" />
                         <label for="myChk">Dermatologia</label>
                     </div>
                     <div class="checkbox-inside-container">
-                        <input type="checkbox" id="myChk2" />
+                        <input type="checkbox" id="has-mommy" class="fake-checkbox" />
                         <label for="myChk2">Mommy make-over</label>
                     </div>
                     <div class="checkbox-inside-container">
-                        <input type="checkbox" id="myChk3" />
+                        <input type="checkbox" id="has-ageing" class="fake-checkbox" />
                         <label for="myChk3">Anti-envelhecimento</label>
                     </div>
                     <div class="checkbox-inside-container">
-                        <input type="checkbox" id="myChk3" />
+                        <input type="checkbox" id="has-genital" class="fake-checkbox" />
                         <label for="myChk3">Genital surgery</label>
                     </div>
                     <div class="checkbox-inside-container">
-                        <input type="checkbox" id="myChk3" />
+                        <input type="checkbox" id="has-ethnic" class="fake-checkbox" />
                         <label for="myChk3">Ethnic cosmetics</label>
                     </div>
                 </div>
@@ -134,7 +135,7 @@
 
                 <div class="description-block">
                     <h3>Descrição</h3>
-                    <p>A Clínica Saute foi criada para oferecer atendimento especializado em saúde feminina, trabalhando
+                    <p id="clinic-description">A Clínica Saute foi criada para oferecer atendimento especializado em saúde feminina, trabalhando
                         pela qualidade de vida da mulher. Com estrutura criada para atender as pacientes com total
                         tranquilidade e conforto, a Clínica atua nas áreas de Ginecologia e Obstetrícia, e em
                         especialidades como Uroginecologia, Oncoginecologia, Mastologia, Cirurgia Ginecológica,
@@ -144,12 +145,10 @@
                         acesso junto ao bairro Moinhos de Vento em Porto Alegre-RS, e atendemos convênios e
                         particulares. Nossa equipe multidisciplinar está a sua disposição.</p>
                 </div>
-
                 <div class="divider"></div>
-
                 <div class="description-block">
                     <h3>Investigação</h3>
-                    <p>A Clínica Saute foi criada para oferecer atendimento especializado em saúde feminina, trabalhando
+                    <p id="clinic-investigation">A Clínica Saute foi criada para oferecer atendimento especializado em saúde feminina, trabalhando
                         pela qualidade de vida da mulher. Com estrutura criada para atender as pacientes com total
                         tranquilidade e conforto, a Clínica atua nas áreas de Ginecologia e Obstetrícia, e em
                         especialidades como Uroginecologia, Oncoginecologia, Mastologia, Cirurgia Ginecológica,
@@ -159,38 +158,23 @@
                         acesso junto ao bairro Moinhos de Vento em Porto Alegre-RS, e atendemos convênios e
                         particulares. Nossa equipe multidisciplinar está a sua disposição.</p>
                 </div>
-
             </div>
-
+            <!-- END OF DESCRIPTION CONTAINER -->
         </div>
-
         <div id="fake-container"></div>
         <!-- PAGE -->
-
-
-
-
         <!-- SCRIPTS -->
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
         <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
         <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
-
         <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
         <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
-
         <!-- Add Firebase products that you want to use -->
         <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-
-
-
         <script
             src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
         <script
@@ -264,9 +248,7 @@
                 });
             });
             //SLIDER
-
             // SWITCH PANELS
-
             const descriptionPanel = document.querySelector(".description-container");
             const filterContainer = document.querySelector(".filters-container");
             const switchButton = document.querySelector(".switch-button");
@@ -289,17 +271,22 @@
                     switchButtonIcon.classList.remove("fa-chevron-up");
                 }
             }
-
-                // SWITCH PANELS
-
+        // SWITCH PANELS
         </script>
-
         <!-- SCRIPTS -->
         <script src="https://kit.fontawesome.com/d013e58416.js" crossorigin="anonymous"></script>
         <!-- STYLES -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
         <style>
+            .fake-checkbox {
+                pointer-events: none !important;
+            }
+
+            .checkbox-checked {
+                background: blue;
+            }
+
             .hidden {
                 transition: 0.5s;
                 transform: translateX(-100%);
@@ -651,7 +638,4 @@
             crossorigin="anonymous"></script>
         <script src="firebase.js"></script>
 </body>
-
-    
-
 </html>
