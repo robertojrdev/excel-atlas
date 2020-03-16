@@ -42,7 +42,7 @@ function dataError(err) {
 function getClinicInfo(id) {
     let currentClinic;
     Object.keys(databaseData).forEach(function (key) {
-        if(databaseData[key].ID == id) {
+        if(databaseData[key].id == id) {
             currentClinic = databaseData[key];
             console.log(databaseData[key]);
         }
@@ -51,13 +51,13 @@ function getClinicInfo(id) {
 }
 
 function changeDescriptions(clinic) {
-    clinicImage.src = clinic.ImageLink;
-    clinicName.innerText = clinic.Name;
-    clinicWebsite.innerText = clinic.Website;
-    clinicPhone.innerText = clinic.Contacts;
-    clinicAddress.innerText = clinic.Address;
-    clinicDescription.innerText = clinic.Description;
-    clinicResearch.innerText = clinic.Research;
+    clinicImage.src = clinic.imagelink;
+    clinicName.innerText = clinic.name;
+    clinicWebsite.innerText = clinic.website;
+    clinicPhone.innerText = clinic.contacts;
+    clinicAddress.innerText = clinic.address;
+    clinicDescription.innerText = clinic.description;
+    clinicResearch.innerText = clinic.research;
 }
 
 

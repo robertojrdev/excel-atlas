@@ -17,11 +17,11 @@ function loadMarkers() {
 
         var item = databaseData[key];
 
-        if (item.Latitude != "" && item.Longitude != "") {
+        if (item.latitude != "" && item.longitude != "") {
             var pos =
             {
-                lat: item.Latitude,
-                lng: item.Longitude
+                lat: item.latitude,
+                lng: item.longitude
             }
 
             item.marker = new google.maps.Marker({
