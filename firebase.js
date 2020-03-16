@@ -28,6 +28,7 @@ var databaseData;
 function dataHandle(data) {
     databaseData = data.val().Sheet1;
     loadMarkers();
+    showMarkers(markers);
     // console.log(val);
     // Object.keys(val).forEach(function (key) {
     //     console.log(key, val[key]);

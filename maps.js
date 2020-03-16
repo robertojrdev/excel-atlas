@@ -55,7 +55,9 @@ function showMarkers(markersToDisplay) {
         markersToDisplay[i].setMap(map);
         bounds.extend(markersToDisplay[i].position);
     }
-    map.fitBounds(bounds);
+
+    if(markersToDisplay.length > 0)
+        map.fitBounds(bounds);
 
 
     if (cluster == undefined) {
