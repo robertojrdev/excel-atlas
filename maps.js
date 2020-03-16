@@ -37,6 +37,9 @@ function loadMarkers() {
                     clickedClinic = true;
                     switchPanels();
                 }
+                if(descriptionPanel.classList.contains("hidden")) {
+                    switchPanels();
+                }
                 changeDescriptions(item);
             });
 
