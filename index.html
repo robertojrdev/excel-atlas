@@ -6,14 +6,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.3/nouislider.min.css">
 </head>
 
 <body>
-
     <!-- PAGE -->
     <div class="page-container">
         <button class="switch-button" onclick="switchPanels()"><i class="fas fa-filter switchIcons"></i></button>
@@ -25,10 +24,8 @@
                     <h2 class="center-txt title" style="margin-top: 0px">Filters</h2>
                     <h3>Range</h3>
                     <div class="slider-container">
-                        <div id="slider-range" class="mt-2"></div>
-                        <div class="center-column">
-                            <input type="text" id="amount" class="mt-1 center-txt">
-                        </div>
+                        <div id="slider-range" class=""></div>
+                        <p id="slider-value"></p>
                     </div>
                     <div class="divider"></div>
                     <h3>Esthetic clinic type</h3>
@@ -135,7 +132,8 @@
 
                 <div class="description-block">
                     <h3>Descrição</h3>
-                    <p id="clinic-description">A Clínica Saute foi criada para oferecer atendimento especializado em saúde feminina, trabalhando
+                    <p id="clinic-description">A Clínica Saute foi criada para oferecer atendimento especializado em
+                        saúde feminina, trabalhando
                         pela qualidade de vida da mulher. Com estrutura criada para atender as pacientes com total
                         tranquilidade e conforto, a Clínica atua nas áreas de Ginecologia e Obstetrícia, e em
                         especialidades como Uroginecologia, Oncoginecologia, Mastologia, Cirurgia Ginecológica,
@@ -148,7 +146,8 @@
                 <div class="divider"></div>
                 <div class="description-block">
                     <h3>Investigação</h3>
-                    <p id="clinic-research">A Clínica Saute foi criada para oferecer atendimento especializado em saúde feminina, trabalhando
+                    <p id="clinic-research">A Clínica Saute foi criada para oferecer atendimento especializado em saúde
+                        feminina, trabalhando
                         pela qualidade de vida da mulher. Com estrutura criada para atender as pacientes com total
                         tranquilidade e conforto, a Clínica atua nas áreas de Ginecologia e Obstetrícia, e em
                         especialidades como Uroginecologia, Oncoginecologia, Mastologia, Cirurgia Ginecológica,
@@ -164,7 +163,9 @@
         <div id="fake-container"></div>
         <!-- PAGE -->
         <!-- SCRIPTS -->
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
         <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
         <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
         <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
@@ -179,24 +180,49 @@
         <script
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHsgSqYkaBH9V3RPj_Qj1wzmc14j_nR1U&callback=initMap"
             async defer></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.3/nouislider.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/d013e58416.js" crossorigin="anonymous"></script>
+        <script src="maps.js"></script>
+        <script src="firebase.js"></script>
+        <script src="fill.js"></script>
         <script>
-            //SLIDER
-            $(function () {
-                var min = 0;
-                var max = 500;
-                $("#amount").val(min + " - " + max); //set text value
+            // RANGE SLIDER
+            var slider = document.getElementById('slider-range');
 
-                $("#slider-range").slider({
-                    range: true,
-                    min: min,
-                    max: max,
-                    values: [min, max],
-                    slide: function (event, ui) {
-                        $("#amount").val(ui.values[0] + " - " + ui.values[1]);
+            noUiSlider.create(slider, {
+                start: [0, 100],
+                step: 1,
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 100
+                },
+                // Formats the numbers to integers
+                format: {
+                    from: function (value) {
+                        return parseInt(value);
+                    },
+                    to: function (value) {
+                        return parseInt(value);
                     }
-                });
+                }
             });
-            //SLIDER
+
+            var sliderValue = document.getElementById('slider-value');
+
+            slider.noUiSlider.on('update', function (values) {
+                sliderValue.innerHTML = values.join(' - ');
+            });
+            // END OF RANGE SLIDER
+
             // SWITCH PANELS
             const descriptionPanel = document.querySelector(".description-container");
             const filterContainer = document.querySelector(".filters-container");
@@ -220,14 +246,41 @@
                     switchButtonIcon.classList.remove("fa-chevron-up");
                 }
             }
-            
+
             switchPanels();
         // SWITCH PANELS
         </script>
         <!-- SCRIPTS -->
-        <script src="https://kit.fontawesome.com/d013e58416.js" crossorigin="anonymous"></script>
-
         <style>
+            .noUi-horizontal {
+                height: 10px;
+            }
+
+            .noUi-connect {
+                background: #414141;
+            }
+
+            .noUi-horizontal .noUi-handle {
+                width: 20px;
+                height: 20px;
+            }
+
+            .noUi-handle {
+                border-radius: 100px;
+                box-shadow: none;
+                border: 2px #414141 solid;
+            }
+
+            .noUi-handle:before,
+            .noUi-handle:after {
+                display: none;
+            }
+
+            #slider-value {
+                text-align: center;
+                margin-top: 1rem;
+            }
+
             .fake-checkbox {
                 pointer-events: none !important;
             }
@@ -573,20 +626,6 @@
                 }
             }
         </style>
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="maps.js"></script>
-        <script src="firebase.js"></script>
-        <script src="fill.js"></script>
 </body>
+
 </html>
