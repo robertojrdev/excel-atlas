@@ -1,4 +1,4 @@
-// initMap();
+initMap();
 
 let clickedClinic = false;
 
