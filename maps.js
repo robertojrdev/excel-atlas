@@ -28,6 +28,10 @@ function loadMarkers() {
                 position: pos
             });
 
+            item.marker.addListener('click', function () {
+                changeDescriptions(item);
+            });
+
             markers.push(item.marker);
         }
     });
