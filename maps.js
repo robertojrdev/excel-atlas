@@ -1,3 +1,5 @@
+initMap();
+
 let clickedClinic = false;
 
 var map;
@@ -30,6 +32,11 @@ function loadMarkers() {
             });
 
             item.marker.addListener('click', function () {
+                if (clickedClinic == false) {
+                    switchButton.classList.remove("hidden");
+                    clickedClinic = true;
+                    switchPanels();
+                }
                 changeDescriptions(item);
             });
 
