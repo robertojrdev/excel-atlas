@@ -88,7 +88,7 @@
                     <h2 class="clinic-name">Clínica Casaute</h2>
                     <div class="info-item">
                         <i class="fas fa-globe-americas"></i>
-                        <p id="clinic-website">facebook.com</p>
+                        <a id="clinic-website" href="">facebook.com</a>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone-alt"></i>
@@ -103,25 +103,45 @@
                 <div class="divider"></div>
 
                 <div class="description-block">
-                    <div class="checkbox-inside-container">
-                        <input type="checkbox" id="has-dermatology" class="fake-checkbox" />
-                        <label for="myChk">Dermatologia</label>
+                    <div class="checkbox-container">
+                        <div class="checkbox-inside-container" id="has-htinvasive">
+                            <input type="checkbox" checked/>
+                            <label for="myChk">High-tech invasive intervention</label>
+                        </div>
+                        <div class="checkbox-inside-container" id="has-htnoninvasive">
+                            <input type="checkbox" checked/>
+                            <label for="myChk2">High-tech non-invasive intervention</label>
+                        </div>
+                        <div class="checkbox-inside-container" id="has-lowtech" >
+                            <input type="checkbox" checked/>
+                            <label for="myChk3">Low tech</label>
+                        </div>
                     </div>
-                    <div class="checkbox-inside-container">
-                        <input type="checkbox" id="has-mommy" class="fake-checkbox" />
-                        <label for="myChk2">Mommy make-over</label>
+                    <div class="checkbox-inside-container solo" id="has-circuit" >
+                        <input type="checkbox"checked/>
+                        <label for="myChk4">Clinica com circuitos turísticos</label>
                     </div>
-                    <div class="checkbox-inside-container">
-                        <input type="checkbox" id="has-ageing" class="fake-checkbox" />
-                        <label for="myChk3">Anti-envelhecimento</label>
-                    </div>
-                    <div class="checkbox-inside-container">
-                        <input type="checkbox" id="has-genital" class="fake-checkbox" />
-                        <label for="myChk3">Genital surgery</label>
-                    </div>
-                    <div class="checkbox-inside-container">
-                        <input type="checkbox" id="has-ethnic" class="fake-checkbox" />
-                        <label for="myChk3">Ethnic cosmetics</label>
+                    <div class="checkbox-container">
+                        <div class="checkbox-inside-container" id="has-dermatology" >
+                            <input type="checkbox"checked/>
+                            <label for="myChk">Dermatologia</label>
+                        </div>
+                        <div class="checkbox-inside-container" id="has-mommy" >
+                            <input type="checkbox"checked/>
+                            <label for="myChk2">Mommy make-over</label>
+                        </div>
+                        <div class="checkbox-inside-container" id="has-antiaging" >
+                            <input type="checkbox"checked/>
+                            <label for="myChk3">Anti-envelhecimento</label>
+                        </div>
+                        <div class="checkbox-inside-container" id="has-genital" >
+                            <input type="checkbox"checked/>
+                            <label for="myChk3">Genital surgery</label>
+                        </div>
+                        <div class="checkbox-inside-container" id="has-ethnic" >
+                            <input type="checkbox"checked/>
+                            <label for="myChk3">Ethnic cosmetics</label>
+                        </div>
                     </div>
                 </div>
 
@@ -158,476 +178,492 @@
                         particulares. Nossa equipe multidisciplinar está a sua disposição.</p>
                 </div>
             </div>
-            <!-- END OF DESCRIPTION CONTAINER -->
         </div>
-        <div id="fake-container"></div>
-        <!-- PAGE -->
-        <!-- SCRIPTS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
-        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
-        <!-- Add Firebase products that you want to use -->
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
-        <script
-            src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHsgSqYkaBH9V3RPj_Qj1wzmc14j_nR1U&callback=initMap"
-            async defer></script>
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.3/nouislider.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/d013e58416.js" crossorigin="anonymous"></script>
-        <script src="maps.js"></script>
-        <script src="firebase.js"></script>
-        <script src="fill.js"></script>
-        <script src="filter.js"></script>
-        <script>
-            // SWITCH PANELS
-            const descriptionPanel = document.querySelector(".description-container");
-            const filterContainer = document.querySelector(".filters-container");
-            const switchButton = document.querySelector(".switch-button");
-            const switchButtonIcon = document.querySelector(".switchIcons");
-            switchButton.classList.add("hidden");
-            function switchPanels() {
-                if (!descriptionPanel.classList.contains("hidden")) {
-                    descriptionPanel.classList.add("hidden");
-                    filterContainer.classList.remove("hidden");
-                    switchButton.classList.add("rotated");
-                    switchButtonIcon.classList.remove("fa-filter");
-                    switchButtonIcon.classList.add("fa-chevron-up");
-                    console.log("1");
-                }
-                else {
-                    descriptionPanel.classList.remove("hidden");
-                    filterContainer.classList.add("hidden");
-                    switchButton.classList.remove("rotated");
-                    switchButtonIcon.classList.add("fa-filter");
-                    switchButtonIcon.classList.remove("fa-chevron-up");
-                }
+        <!-- END OF DESCRIPTION CONTAINER -->
+    </div>
+    <div id="fake-container"></div>
+    <!-- PAGE -->
+    <!-- SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+    <script
+        src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHsgSqYkaBH9V3RPj_Qj1wzmc14j_nR1U&callback=initMap"
+        async defer></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.0.3/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/d013e58416.js" crossorigin="anonymous"></script>
+    <script src="maps.js"></script>
+    <script src="firebase.js"></script>
+    <script src="fill.js"></script>
+    <script src="filter.js"></script>
+    <script>
+        // SWITCH PANELS
+        const descriptionPanel = document.querySelector(".description-container");
+        const filterContainer = document.querySelector(".filters-container");
+        const switchButton = document.querySelector(".switch-button");
+        const switchButtonIcon = document.querySelector(".switchIcons");
+        switchButton.classList.add("hidden");
+        function switchPanels() {
+            if (!descriptionPanel.classList.contains("hidden")) {
+                descriptionPanel.classList.add("hidden");
+                filterContainer.classList.remove("hidden");
+                switchButton.classList.add("rotated");
+                switchButtonIcon.classList.remove("fa-filter");
+                switchButtonIcon.classList.add("fa-chevron-up");
+                console.log("1");
             }
+            else {
+                descriptionPanel.classList.remove("hidden");
+                filterContainer.classList.add("hidden");
+                switchButton.classList.remove("rotated");
+                switchButtonIcon.classList.add("fa-filter");
+                switchButtonIcon.classList.remove("fa-chevron-up");
+            }
+        }
 
-            switchPanels();
-            // SWITCH PANELS
+        switchPanels();
+        // SWITCH PANELS
 
-            // RANGE SLIDER
-            var slider = document.getElementById('slider-range');
+        // RANGE SLIDER
+        var slider = document.getElementById('slider-range');
 
-            noUiSlider.create(slider, {
-                start: [0, 100],
-                step: 1,
-                connect: true,
-                range: {
-                    'min': 0,
-                    'max': 100
+        noUiSlider.create(slider, {
+            start: [0, 100],
+            step: 1,
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 100
+            },
+            // Formats the numbers to integers
+            format: {
+                from: function (value) {
+                    return parseInt(value);
                 },
-                // Formats the numbers to integers
-                format: {
-                    from: function (value) {
-                        return parseInt(value);
-                    },
-                    to: function (value) {
-                        return parseInt(value);
-                    }
+                to: function (value) {
+                    return parseInt(value);
                 }
-            });
+            }
+        });
 
-            var sliderValue = document.getElementById('slider-value');
+        var sliderValue = document.getElementById('slider-value');
 
-            slider.noUiSlider.on('update', function (values) {
-                sliderValue.innerHTML = values.join(' - ');
-                updateMarkers();
-            });
+        slider.noUiSlider.on('update', function (values) {
+            sliderValue.innerHTML = values.join(' - ');
+        });
+
+        slider.noUiSlider.on('end', function () {
+            console.log('updated markers');
+            updateMarkers();
+        });
         // END OF RANGE SLIDER
-        </script>
-        <!-- SCRIPTS -->
-        <style>
-            .noUi-horizontal {
-                height: 10px;
-            }
+    </script>
+    <!-- SCRIPTS -->
+    <style>
+        p {
+            margin-bottom: 0;
+        }
+        .info-item {
+            margin: 1rem 0;
+        }
+        .info-item:last-child {
+            margin-bottom: 0;
+        }
+        .noUi-horizontal {
+            height: 10px;
+        }
 
-            .noUi-connect {
-                background: #414141;
-            }
+        .noUi-connect {
+            background: #414141;
+        }
 
-            .noUi-horizontal .noUi-handle {
-                width: 20px;
-                height: 20px;
-            }
+        .noUi-horizontal .noUi-handle {
+            width: 20px;
+            height: 20px;
+        }
 
-            .noUi-handle {
-                border-radius: 100px;
-                box-shadow: none;
-                border: 2px #414141 solid;
-            }
+        .noUi-handle {
+            border-radius: 100px;
+            box-shadow: none;
+            border: 2px #414141 solid;
+        }
 
-            .noUi-handle:before,
-            .noUi-handle:after {
-                display: none;
-            }
+        .noUi-handle:before,
+        .noUi-handle:after {
+            display: none;
+        }
 
-            #slider-value {
-                text-align: center;
-                margin-top: 1rem;
-            }
+        #slider-value {
+            text-align: center;
+            margin-top: 1rem;
+        }
 
-            .fake-checkbox {
-                pointer-events: none !important;
-            }
+        .fake-checkbox {
+            pointer-events: none !important;
+        }
 
-            .checkbox-checked {
-                background: blue;
-            }
+        .checkbox-checked {
+            background: blue;
+        }
 
-            .hidden {
-                transition: 0.5s;
-                transform: translateX(-100%);
-                opacity: 0;
-            }
+        .hidden {
+            transition: 0.5s;
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        .dspl-nn {
+            display: none!important;
+        }
 
-            /* Always set the map height explicitly to define the size of the div
+        /* Always set the map height explicitly to define the size of the div
                              * element that contains the map. */
 
-            * {
-                font-family: inherit;
-            }
+        * {
+            font-family: inherit;
+        }
 
-            .clinic-name {
-                padding-top: 1em;
-            }
+        .clinic-name {
+            padding-top: 1em;
+        }
 
-            .filters-container {
-                transition: 0.5s;
-                font-family: inherit;
-                position: absolute;
-                left: 0px;
-                top: 0px;
-                width: 500px;
-                min-height: 100%;
-                height: auto;
-                z-index: 0;
-                background: #fff;
-                display: flex;
-                justify-content: center;
-                -webkit-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
-                -moz-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
-                box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
-            }
+        .filters-container {
+            transition: 0.5s;
+            font-family: inherit;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 500px;
+            min-height: 100%;
+            height: auto;
+            z-index: 0;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            -webkit-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+        }
 
-            .description-container {
-                background-color: #fff;
-                position: absolute;
-                height: 100%;
-                width: 500px;
-                top: 0;
-                margin: 0px;
-                z-index: 1;
-                display: flex;
-                flex-direction: column;
-                box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
-                overflow-x: hidden;
-                overflow-y: auto;
-                transition: .5s;
-            }
+        .description-container {
+            background-color: #fff;
+            position: absolute;
+            height: 100%;
+            width: 500px;
+            top: 0;
+            margin: 0px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+            overflow-x: hidden;
+            overflow-y: auto;
+            transition: .5s;
+        }
 
-            .description-container>*:last-child {
-                margin-bottom: 20px;
-            }
+        .description-container>*:last-child {
+            margin-bottom: 20px;
+        }
 
-            .description-block {
-                padding: 0 20px;
-            }
+        .description-block {
+            padding: 0 20px;
+        }
 
-            .info-item {
-                display: flex;
-                align-items: center;
-            }
+        .info-item {
+            display: flex;
+            align-items: center;
+        }
 
-            .info-item i {
-                display: flex;
-                align-items: center;
-                color: #1A73E8;
-                font-size: 1.5em;
-                padding-right: 20px;
-            }
+        .info-item i {
+            display: flex;
+            align-items: center;
+            color: #1A73E8;
+            font-size: 1.5em;
+            padding-right: 20px;
+        }
 
-            .info-item img {
-                height: 30px;
-                width: 30px;
-                margin-right: 10px;
-            }
+        .info-item img {
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+        }
 
-            .img-container {
-                height: 300px;
-                min-height: 300px;
-                width: 100%;
-            }
+        .img-container {
+            height: 300px;
+            min-height: 300px;
+            width: 100%;
+        }
 
-            .img-slider {
-                object-fit: cover;
-                height: 100%;
-                align-self: center;
-                width: 100%;
-            }
+        .img-slider {
+            object-fit: cover;
+            height: 100%;
+            align-self: center;
+            width: 100%;
+        }
 
-            ::-webkit-scrollbar {
-                width: 3px;
-                background: white;
+        ::-webkit-scrollbar {
+            width: 3px;
+            background: white;
 
-            }
+        }
 
-            ::-webkit-scrollbar-thumb {
-                background: gray;
-                height: 50px;
-                border-radius: 50px
-            }
+        ::-webkit-scrollbar-thumb {
+            background: gray;
+            height: 50px;
+            border-radius: 50px
+        }
 
-            .filters-inside-container {
-                width: 84%;
-                margin-top: 30px;
-                padding-bottom: 30px;
-            }
+        .filters-inside-container {
+            width: 84%;
+            margin-top: 30px;
+            padding-bottom: 30px;
+        }
 
-            #fake-container {}
+        #fake-container {}
 
+        #map-container {
+            height: 100%;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        #filters-container {
+            margin: 2em 0 0 2em;
+            height: auto;
+            width: 50%;
+        }
+
+        .filter {
+            width: 50%;
+        }
+
+        #clinic-type {}
+
+        #typology {}
+
+        body,
+        html,
+        .page-container {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: inherit;
+        }
+
+        .page-container {
+            /* display: flex; */
+        }
+
+        .switch-button {
+            width: 80px;
+            height: 80px;
+            border-radius: 150px;
+            background: white;
+            display: block;
+            position: absolute;
+            top: 40px;
+            left: 550px;
+            z-index: 1;
+            border: none;
+            box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+            transition: .5s;
+            outline: none;
+        }
+
+        .rotated {
+            transition: .5s;
+            transform: rotate(270deg);
+        }
+
+        .switch-button i {
+            transition: .5s;
+            font-size: 2em;
+            color: #1A73E8;
+        }
+
+        #filter-title {
+            margin-top: 1;
+            margin-bottom: 0.5em;
+        }
+
+        .mt-0 {
+            margin-top: 0em;
+        }
+
+        .mt-1 {
+            margin-top: 1em;
+        }
+
+        .mt-2 {
+            margin-top: 2em;
+        }
+
+        .ml-2 {
+            margin-left: 2em;
+        }
+
+        .title {
+            text-transform: uppercase;
+            font-size: 1.6em;
+        }
+
+        .outline-1 {
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+        }
+
+        .center-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .center-txt {
+            text-align: center;
+        }
+
+        input#amount {
+            border: none;
+        }
+
+        input[type='checkbox'] {
+            border: none !important;
+            background: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            outline: 2px solid #707070 !important;
+            width: 25px;
+            height: 25px;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            -o-appearance: none;
+            transition: .1s;
+            vertical-align: middle;
+        }
+
+        .divider {
+            width: 100%;
+            height: 0px;
+            border-top: 1px;
+            border-bottom: 0px;
+            border-left: 40px;
+            border-right: 40px;
+            border-style: solid;
+            border-color: #70707040;
+            margin: 31.5px 0;
+            transform: translate(-40px, 0px);
+        }
+
+        label {
+            padding-left: 40px;
+            margin-top: -27px;
+            line-height: 27px;
+            display: block;
+            font-family: ff-meta-serif-web-pro;
+            color: #585858;
+        }
+
+        input[type='checkbox']:checked {
+            transition: .1s;
+            background: #707070;
+        }
+
+        .checkbox-container {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-inside-container {
+            width: 100%;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .solo h3 {
+            margin-top: -20px;
+        }
+
+        .solo {
+            margin-top: 20px;
+
+        }
+
+        .ui-widget.ui-widget-content {
+            height: 1px;
+            background: #c1c1c1;
+            border-radius: 0;
+        }
+
+        .ui-slider-horizontal .ui-slider-range {
+            top: -1px;
+            height: 100%;
+            background: #707070;
+            border: 1px solid #707070;
+        }
+
+        span.ui-slider-handle.ui-corner-all.ui-state-default {
+            border-radius: 90px;
+            border: 2px solid #707070;
+            width: 15px;
+            height: 15px;
+            top: -9px;
+        }
+
+        /* stylus-based screens */
+        @media (hover: none) and (pointer: fine) {
             #map-container {
                 height: 100%;
                 width: 100%;
                 min-height: 100vh;
+                min-width: 100vw;
+                position: absolute;
+                overflow-x: hidden;
+                top: 0;
+                left: 0;
+                margin-top: -62px;
+                margin-left: -28px;
             }
 
             #map {
-                height: 100%;
-                width: 100%;
+                overflow: hidden;
+                position: relative;
+            }
+
+            #fake-container {
                 min-height: 100vh;
             }
 
-            #filters-container {
-                margin: 2em 0 0 2em;
-                height: auto;
-                width: 50%;
+            .filters-container {
+                display: none;
             }
-
-            .filter {
-                width: 50%;
-            }
-
-            #clinic-type {}
-
-            #typology {}
-
-            body,
-            html,
-            .page-container {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                font-family: inherit;
-            }
-
-            .page-container {
-                /* display: flex; */
-            }
-
-            .switch-button {
-                width: 80px;
-                height: 80px;
-                border-radius: 150px;
-                background: white;
-                display: block;
-                position: absolute;
-                top: 40px;
-                left: 550px;
-                z-index: 1;
-                border: none;
-                box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
-                transition: .5s;
-                outline: none;
-            }
-
-            .rotated {
-                transition: .5s;
-                transform: rotate(270deg);
-            }
-
-            .switch-button i {
-                transition: .5s;
-                font-size: 2em;
-                color: #1A73E8;
-            }
-
-            #filter-title {
-                margin-top: 1;
-                margin-bottom: 0.5em;
-            }
-
-            .mt-0 {
-                margin-top: 0em;
-            }
-
-            .mt-1 {
-                margin-top: 1em;
-            }
-
-            .mt-2 {
-                margin-top: 2em;
-            }
-
-            .ml-2 {
-                margin-left: 2em;
-            }
-
-            .title {
-                text-transform: uppercase;
-                font-size: 1.6em;
-            }
-
-            .outline-1 {
-                border-style: solid;
-                border-width: 1px;
-                border-color: black;
-            }
-
-            .center-column {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .center-txt {
-                text-align: center;
-            }
-
-            input#amount {
-                border: none;
-            }
-
-            input[type='checkbox'] {
-                border: none !important;
-                background: none;
-                padding: 0;
-                margin: 0;
-                position: relative;
-                outline: 2px solid #707070 !important;
-                width: 25px;
-                height: 25px;
-                -moz-appearance: none;
-                -webkit-appearance: none;
-                -o-appearance: none;
-                transition: .1s;
-                vertical-align: middle;
-            }
-
-            .divider {
-                width: 100%;
-                height: 0px;
-                border-top: 1px;
-                border-bottom: 0px;
-                border-left: 40px;
-                border-right: 40px;
-                border-style: solid;
-                border-color: #70707040;
-                margin: 31.5px 0;
-                transform: translate(-40px, 0px);
-            }
-
-            label {
-                padding-left: 40px;
-                margin-top: -27px;
-                line-height: 27px;
-                display: block;
-                font-family: ff-meta-serif-web-pro;
-                color: #585858;
-            }
-
-            input[type='checkbox']:checked {
-                transition: .1s;
-                background: #707070;
-            }
-
-            .checkbox-container {
-                display: flex;
-                justify-content: flex-start;
-                flex-wrap: wrap;
-            }
-
-            .checkbox-inside-container {
-                width: 100%;
-                display: inline-block;
-                margin-bottom: 20px;
-            }
-
-            .solo h3 {
-                margin-top: -20px;
-            }
-
-            .solo {
-                margin-top: 20px;
-
-            }
-
-            .ui-widget.ui-widget-content {
-                height: 1px;
-                background: #c1c1c1;
-                border-radius: 0;
-            }
-
-            .ui-slider-horizontal .ui-slider-range {
-                top: -1px;
-                height: 100%;
-                background: #707070;
-                border: 1px solid #707070;
-            }
-
-            span.ui-slider-handle.ui-corner-all.ui-state-default {
-                border-radius: 90px;
-                border: 2px solid #707070;
-                width: 15px;
-                height: 15px;
-                top: -9px;
-            }
-
-            /* stylus-based screens */
-            @media (hover: none) and (pointer: fine) {
-                #map-container {
-                    height: 100%;
-                    width: 100%;
-                    min-height: 100vh;
-                    min-width: 100vw;
-                    position: absolute;
-                    overflow-x: hidden;
-                    top: 0;
-                    left: 0;
-                    margin-top: -62px;
-                    margin-left: -28px;
-                }
-
-                #map {
-                    overflow: hidden;
-                    position: relative;
-                }
-
-                #fake-container {
-                    min-height: 100vh;
-                }
-
-                .filters-container {
-                    display: none;
-                }
-            }
-        </style>
+        }
+    </style>
 </body>
 
 </html>
