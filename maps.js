@@ -1,3 +1,4 @@
+let clickedClinic = false;
 
 var map;
 var markers;

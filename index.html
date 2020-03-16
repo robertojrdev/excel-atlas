@@ -202,7 +202,7 @@
             const filterContainer = document.querySelector(".filters-container");
             const switchButton = document.querySelector(".switch-button");
             const switchButtonIcon = document.querySelector(".switchIcons");
-
+            switchButton.classList.add("hidden");
             function switchPanels() {
                 if (!descriptionPanel.classList.contains("hidden")) {
                     descriptionPanel.classList.add("hidden");
@@ -220,6 +220,8 @@
                     switchButtonIcon.classList.remove("fa-chevron-up");
                 }
             }
+            
+            switchPanels();
         // SWITCH PANELS
         </script>
         <!-- SCRIPTS -->
