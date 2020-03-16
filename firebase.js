@@ -35,6 +35,10 @@ let hasEthnic = document.getElementById("has-ethnic");
 
 var databaseData;
 
+var dates = dates_as_int.map(function(dateStr) {
+    return new Date(dateStr).getTime();
+});
+
 function dataHandle(data) {
     databaseData = data.val().Sheet1;
     loadMarkers();

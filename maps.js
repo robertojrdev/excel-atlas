@@ -1,10 +1,13 @@
-initMap();
 
 let clickedClinic = false;
 
 var map;
 var markers;
 var cluster;
+
+if(map == undefined)
+    initMap();
+    
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -28.024, lng: 140.887 },
