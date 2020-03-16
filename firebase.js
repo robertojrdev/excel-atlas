@@ -15,14 +15,18 @@ var database = firebase.database();
 var ref = database.ref('1ex4NhosRYg7NvCYOA0FdScx8tcdg39OFF51iXvx15Tw');
 ref.on('value', dataHandle, dataError);
 
-var databaseData = "";
+let clinicImage = document.querySelector(".img-slider");
+let clinicName = document.querySelector(".clinic-name");
+let clinicWebsite = document.getElementById("clinic-website");
+let clinicPhone = document.getElementById("clinic-phone");
+let clinicAddress = document.getElementById("clinic-address");
+let clinicDescription = document.getElementById("clinic-description");
+let clinicResearch = document.getElementById("clinic-research");
+
+var databaseData;
 
 function dataHandle(data) {
     databaseData = data.val().Sheet1;
-    // console.log(val);
-    // Object.keys(val).forEach(function (key) {
-    //     console.log(key, val[key]);
-    // });
 }
 
 function dataError(err) {
@@ -30,3 +34,23 @@ function dataError(err) {
     console.log(err);
 }
 
+function getClinicInfo(id) {
+    let currentClinic;
+    Object.keys(databaseData).forEach(function (key) {
+        if(databaseData[key].ID == id) {
+            currentClinic = databaseData[key];
+            console.log(databaseData[key]);
+        }
+    });
+    changeDescriptions(currentClinic);
+}
+
+function changeDescriptions(clinic) {
+    clinicImage.src = clinic.ImageLink;
+    clinicName.innerText = clinic.Name;
+    clinicWebsite.innerText = clinic.Website;
+    clinicPhone.innerText = clinic.Contacts;
+    clinicAddress.innerText = clinic.Address;
+    clinicDescription.innerText = clinic.Description;
+    clinicResearch.innerText = clinic.Research;
+}
