@@ -1,16 +1,15 @@
-initMap();
+// initMap();
 
 let clickedClinic = false;
 
 var map;
 var markers;
+var cluster;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -28.024, lng: 140.887 },
         zoom: 3
     });
-
-    // loadMarkers();
 }
 
 function loadMarkers() {
@@ -51,10 +50,25 @@ function loadMarkers() {
 function showMarkers(markersToDisplay) {
     setMapOnAll(null);
 
+    var bounds = new google.maps.LatLngBounds();
     for (var i = 0; i < markersToDisplay.length; i++) {
         markersToDisplay[i].setMap(map);
+        bounds.extend(markersToDisplay[i].position);
     }
+    map.fitBounds(bounds);
+
+
+    if (cluster == undefined) {
+        cluster = new MarkerClusterer(map, markersToDisplay,
+            { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+    }
+    else {
+        cluster.clearMarkers();
+        cluster.addMarkers(markersToDisplay);
+    }
+
 }
+
 
 function setMapOnAll(map) {
     for (var i = 0; i < markers.length; i++) {
