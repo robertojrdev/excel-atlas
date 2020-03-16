@@ -31,21 +31,21 @@
                     <h3>Esthetic clinic type</h3>
                     <div class="checkbox-container">
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-htinvasive" class="" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-htinvasive" class="" onclick="updateMarkers()" />
                             <label for="myChk">High-tech invasive intervention</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-htnoninvasive" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-htnoninvasive" onclick="updateMarkers()" />
                             <label for="myChk2">High-tech non-invasive intervention</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-lowtech" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-lowtech" onclick="updateMarkers()" />
                             <label for="myChk3">Low tech</label>
                         </div>
                     </div>
                     <div class="divider"></div>
                     <div class="checkbox-inside-container solo">
-                        <input type="checkbox" id="check-circuit" onclick="updateMarkers()"/>
+                        <input type="checkbox" id="check-circuit" onclick="updateMarkers()" />
                         <label for="myChk4">
                             <h3>Clinicas com circuitos turísticos</h3>
                         </label>
@@ -54,23 +54,23 @@
                     <h3>Tipologia de intervenção</h3>
                     <div class="checkbox-container">
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-dermatology" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-dermatology" onclick="updateMarkers()" />
                             <label for="myChk">Dermatologia</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-mommy" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-mommy" onclick="updateMarkers()" />
                             <label for="myChk2">Mommy make-over</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-antiaging" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-antiaging" onclick="updateMarkers()" />
                             <label for="myChk3">Anti-envelhecimento</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-genital" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-genital" onclick="updateMarkers()" />
                             <label for="myChk3">Genital surgery</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-ethnic" onclick="updateMarkers()"/>
+                            <input type="checkbox" id="check-ethnic" onclick="updateMarkers()" />
                             <label for="myChk3">Ethnic cosmetics</label>
                         </div>
                     </div>
@@ -195,6 +195,33 @@
         <script src="fill.js"></script>
         <script src="filter.js"></script>
         <script>
+            // SWITCH PANELS
+            const descriptionPanel = document.querySelector(".description-container");
+            const filterContainer = document.querySelector(".filters-container");
+            const switchButton = document.querySelector(".switch-button");
+            const switchButtonIcon = document.querySelector(".switchIcons");
+            switchButton.classList.add("hidden");
+            function switchPanels() {
+                if (!descriptionPanel.classList.contains("hidden")) {
+                    descriptionPanel.classList.add("hidden");
+                    filterContainer.classList.remove("hidden");
+                    switchButton.classList.add("rotated");
+                    switchButtonIcon.classList.remove("fa-filter");
+                    switchButtonIcon.classList.add("fa-chevron-up");
+                    console.log("1");
+                }
+                else {
+                    descriptionPanel.classList.remove("hidden");
+                    filterContainer.classList.add("hidden");
+                    switchButton.classList.remove("rotated");
+                    switchButtonIcon.classList.add("fa-filter");
+                    switchButtonIcon.classList.remove("fa-chevron-up");
+                }
+            }
+
+            switchPanels();
+            // SWITCH PANELS
+
             // RANGE SLIDER
             var slider = document.getElementById('slider-range');
 
@@ -223,34 +250,7 @@
                 sliderValue.innerHTML = values.join(' - ');
                 updateMarkers();
             });
-            // END OF RANGE SLIDER
-            
-            // SWITCH PANELS
-            const descriptionPanel = document.querySelector(".description-container");
-            const filterContainer = document.querySelector(".filters-container");
-            const switchButton = document.querySelector(".switch-button");
-            const switchButtonIcon = document.querySelector(".switchIcons");
-            switchButton.classList.add("hidden");
-            function switchPanels() {
-                if (!descriptionPanel.classList.contains("hidden")) {
-                    descriptionPanel.classList.add("hidden");
-                    filterContainer.classList.remove("hidden");
-                    switchButton.classList.add("rotated");
-                    switchButtonIcon.classList.remove("fa-filter");
-                    switchButtonIcon.classList.add("fa-chevron-up");
-                    console.log("1");
-                }
-                else {
-                    descriptionPanel.classList.remove("hidden");
-                    filterContainer.classList.add("hidden");
-                    switchButton.classList.remove("rotated");
-                    switchButtonIcon.classList.add("fa-filter");
-                    switchButtonIcon.classList.remove("fa-chevron-up");
-                }
-            }
-
-            switchPanels();
-        // SWITCH PANELS
+        // END OF RANGE SLIDER
         </script>
         <!-- SCRIPTS -->
         <style>
