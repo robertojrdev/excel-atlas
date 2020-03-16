@@ -31,21 +31,21 @@
                     <h3>Esthetic clinic type</h3>
                     <div class="checkbox-container">
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-htinvasive" class="" />
+                            <input type="checkbox" id="check-htinvasive" class="" onclick="updateMarkers()"/>
                             <label for="myChk">High-tech invasive intervention</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-htnoninvasive" />
+                            <input type="checkbox" id="check-htnoninvasive" onclick="updateMarkers()"/>
                             <label for="myChk2">High-tech non-invasive intervention</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-lowtech" />
+                            <input type="checkbox" id="check-lowtech" onclick="updateMarkers()"/>
                             <label for="myChk3">Low tech</label>
                         </div>
                     </div>
                     <div class="divider"></div>
                     <div class="checkbox-inside-container solo">
-                        <input type="checkbox" id="check-circuit" />
+                        <input type="checkbox" id="check-circuit" onclick="updateMarkers()"/>
                         <label for="myChk4">
                             <h3>Clinicas com circuitos turísticos</h3>
                         </label>
@@ -54,23 +54,23 @@
                     <h3>Tipologia de intervenção</h3>
                     <div class="checkbox-container">
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-dermatology" />
+                            <input type="checkbox" id="check-dermatology" onclick="updateMarkers()"/>
                             <label for="myChk">Dermatologia</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-mommy" />
+                            <input type="checkbox" id="check-mommy" onclick="updateMarkers()"/>
                             <label for="myChk2">Mommy make-over</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-antiaging" />
+                            <input type="checkbox" id="check-antiaging" onclick="updateMarkers()"/>
                             <label for="myChk3">Anti-envelhecimento</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-genital" />
+                            <input type="checkbox" id="check-genital" onclick="updateMarkers()"/>
                             <label for="myChk3">Genital surgery</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-ethnic" />
+                            <input type="checkbox" id="check-ethnic" onclick="updateMarkers()"/>
                             <label for="myChk3">Ethnic cosmetics</label>
                         </div>
                     </div>
@@ -220,9 +220,10 @@
 
             slider.noUiSlider.on('update', function (values) {
                 sliderValue.innerHTML = values.join(' - ');
+                updateMarkers();
             });
             // END OF RANGE SLIDER
-
+            
             // SWITCH PANELS
             const descriptionPanel = document.querySelector(".description-container");
             const filterContainer = document.querySelector(".filters-container");
@@ -626,22 +627,6 @@
                 }
             }
         </style>
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="maps.js"></script>
-        <script src="firebase.js"></script>
-        <script src="fill.js"></script>
-        <script src="filter.js"></script>
 </body>
 
 </html>
