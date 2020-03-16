@@ -27,6 +27,11 @@ var databaseData;
 
 function dataHandle(data) {
     databaseData = data.val().Sheet1;
+    loadMarkers();
+    // console.log(val);
+    // Object.keys(val).forEach(function (key) {
+    //     console.log(key, val[key]);
+    // });
 }
 
 function dataError(err) {
@@ -54,3 +59,5 @@ function changeDescriptions(clinic) {
     clinicDescription.innerText = clinic.Description;
     clinicResearch.innerText = clinic.Research;
 }
+
+
