@@ -39,6 +39,7 @@ function loadMarkers() {
                 if(descriptionPanel.classList.contains("hidden")) {
                     switchPanels();
                 }
+                zoomInMarker(item.marker);
                 changeDescriptions(item);
             });
 
@@ -50,6 +51,20 @@ function loadMarkers() {
     //     { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 }
 
+function centerMap()
+{
+    map.panBy(-filterContainer.offsetWidth / 2,0);
+}
+
+function zoomInMarker(marker)
+{
+    var bounds = new google.maps.LatLngBounds();
+    bounds.extend(marker.position);
+    map.fitBounds(bounds);
+    map.setZoom(18);
+    centerMap();
+}
+
 function showMarkers(markersToDisplay) {
     setMapOnAll(null);
 
@@ -59,8 +74,12 @@ function showMarkers(markersToDisplay) {
         bounds.extend(markersToDisplay[i].position);
     }
 
-    if(markersToDisplay.length > 0)
+    if (markersToDisplay.length > 0) {
         map.fitBounds(bounds);
+        var zoom = map.getZoom();
+        map.setZoom(zoom > 18 ? 18 : zoom - 1);
+        centerMap();
+    }
 
 
     if (cluster == undefined) {
