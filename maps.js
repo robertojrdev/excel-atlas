@@ -5,7 +5,7 @@ var map;
 var markers;
 var cluster;
 
-if(map == undefined)
+if(google != undefined && map == undefined)
     initMap();
     
 function initMap() {

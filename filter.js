@@ -16,7 +16,11 @@ function getMarkersFromFilter() {
         var item = databaseData[key];
         if(item.marker == undefined)
             return;
+        
+        var sliderRange = slider.noUiSlider.get();
 
+        if(item.dateopen < sliderRange[0] || item.dateopen > sliderRange[1])
+            return;
         if (toggleHtInvasive.checked == true && item.htinvasive == "false")
             return;
         if (toggleHtNonInvasive.checked == true && item.htnoninvasive == "false")

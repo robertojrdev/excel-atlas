@@ -33,14 +33,14 @@ let hasAntiAging = document.getElementById("has-antiaging");
 let hasGenital = document.getElementById("has-genital");
 let hasEthnic = document.getElementById("has-ethnic");
 
-var databaseData;
+let minMaxDates;
 
-var dates = dates_as_int.map(function(dateStr) {
-    return new Date(dateStr).getTime();
-});
+var databaseData;
 
 function dataHandle(data) {
     databaseData = data.val().Sheet1;
+    minMaxDates = getMinMaxDates();
+    updateSlider();
     loadMarkers();
     showMarkers(markers);
     // console.log(val);
@@ -116,4 +116,43 @@ function toggleInputs(clinic) {
         hasEthnic.classList.remove("dspl-nn");
 }
 
+function getMinMaxDates() {
+    var min = 3000;
+    var max = -1;
+    Object.keys(databaseData).forEach(function (key) {
+        var dateopen = databaseData[key].dateopen;
 
+        if (!isNaN(dateopen) && dateopen != "") {
+            
+            if (min >= dateopen)
+                min = dateopen;
+
+            if (max <= dateopen)
+                max = dateopen;
+        }
+    });
+
+    return [min, max];
+}
+
+function updateSlider()
+{
+    slider.noUiSlider.updateOptions({
+        start: [minMaxDates[0], minMaxDates[1]],
+        step: 1,
+        connect: true,
+        range: {
+            'min': minMaxDates[0],
+            'max': minMaxDates[1]
+        },
+        // Formats the numbers to integers
+        format: {
+            from: function (value) {
+                return parseInt(value);
+            },
+            to: function (value) {
+                return parseInt(value);
+            }
+        }
+    });
+}
