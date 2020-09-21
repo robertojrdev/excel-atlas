@@ -28,59 +28,58 @@
                     </div>
                     <div class="checkbox-inside-container solo">
                         <input type="checkbox" id="check-circuit" onclick="updateMarkers()" />
-                        <label for="myChk4">
-                            <h3>Clinicas com circuitos turísticos</h3>
+                        <label for="myChk4" style="text-transform: uppercase;">
+                            <h6 style="margin-top: 5px;">Clinics in touristic circuit</h6>
                         </label>
                     </div>
                     <div class="divider"></div>
-                    <h3>Clinic type</h3>
+                    <h3>Browse by</h3>
                     <div class="checkbox-container">
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-aesthetic" class="" onclick="toggleSections('aesthetic')" checked/>
-                            <label for="myChk">Aesthetic</label>
+                            <input type="checkbox" id="check-typeofclinic" onclick="toggleSections('intervention')" checked/>
+                            <label for="myChk2">Type of clinic</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-intervention" onclick="toggleSections('intervention')" />
-                            <label for="myChk2">Intervention</label>
+                            <input type="checkbox" id="check-typeofintervention" class="" onclick="toggleSections('aesthetic')"/>
+                            <label for="myChk">Type of intervention</label>
                         </div>
                     </div>
                     <div class="divider"></div>
-                    <h3>Tipologia de intervenção</h3>
                     <div class="checkbox-container">
-                        <span id="aesthetic-container" style="position: absolute;">
-                            <div class="checkbox-inside-container">
-                                <input type="checkbox" id="check-dermatology" onclick="updateMarkers()" />
-                                <label for="myChk">Dermatologia</label>
-                            </div>
-                            <div class="checkbox-inside-container">
-                                <input type="checkbox" id="check-mommy" onclick="updateMarkers()" />
-                                <label for="myChk2">Mommy make-over</label>
-                            </div>
+                        <span id="aesthetic-container" style="position: absolute;" class="hidden">
                             <div class="checkbox-inside-container">
                                 <input type="checkbox" id="check-antiaging" onclick="updateMarkers()" />
-                                <label for="myChk3">Anti-envelhecimento</label>
+                                <label for="myChk3">Anti-Aging</label>
                             </div>
                             <div class="checkbox-inside-container">
-                                <input type="checkbox" id="check-genital" onclick="updateMarkers()" />
-                                <label for="myChk3">Genital surgery</label>
+                                <input type="checkbox" id="check-bodyshaping" onclick="updateMarkers()" />
+                                <label for="myChk">Body Shaping</label>
                             </div>
                             <div class="checkbox-inside-container">
                                 <input type="checkbox" id="check-ethnic" onclick="updateMarkers()" />
                                 <label for="myChk3">Ethnic cosmetics</label>
                             </div>
+                            <div class="checkbox-inside-container">
+                                <input type="checkbox" id="check-facesurgery" onclick="updateMarkers()" />
+                                <label for="myChk3">Face Surgery</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                <input type="checkbox" id="check-genital" onclick="updateMarkers()" />
+                                <label for="myChk3">Genital Intervention</label>
+                            </div>
+                            <div class="checkbox-inside-container">
+                                <input type="checkbox" id="check-mommy" onclick="updateMarkers()" />
+                                <label for="myChk2">Mommy Makeover</label>
+                            </div>
                         </span>
-                        <span id="intervention-container" style="position: absolute;" class="hidden">
+                        <span id="intervention-container" style="position: absolute;">
                             <div class="checkbox-inside-container">
                                 <input type="checkbox" id="check-htinvasive" class="" onclick="updateMarkers()" />
-                                <label for="myChk">High-tech invasive intervention</label>
+                                <label for="myChk">Aesthetic Medicine and Surgery</label>
                             </div>
                             <div class="checkbox-inside-container">
                                 <input type="checkbox" id="check-htnoninvasive" onclick="updateMarkers()" />
-                                <label for="myChk2">High-tech non-invasive intervention</label>
-                            </div>
-                            <div class="checkbox-inside-container">
-                                <input type="checkbox" id="check-lowtech" onclick="updateMarkers()" />
-                                <label for="myChk3">Low tech</label>
+                                <label for="myChk2">Aesthetic Centres and Services</label>
                             </div>
                         </span>
                     </div>
@@ -253,8 +252,8 @@
         switchPanels();
         // SWITCH PANELS
 
-        const aestheticChecker = document.querySelector("#check-aesthetic");
-        const interventionChecker = document.querySelector("#check-intervention");
+        const aestheticChecker = document.querySelector("#check-typeofintervention");
+        const interventionChecker = document.querySelector("#check-typeofclinic");
         const aestheticSection = document.querySelector("#aesthetic-container");
         const interventionSection = document.querySelector("#intervention-container");
 
