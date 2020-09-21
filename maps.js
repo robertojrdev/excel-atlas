@@ -29,9 +29,18 @@ function loadMarkers() {
                 lng: item.longitude
             }
 
-            item.marker = new google.maps.Marker({
-                position: pos
-            });
+            if (item.circuit == "false") {
+                item.marker = new google.maps.Marker({
+                    position: pos
+                });
+            }
+            else
+            {
+                item.marker = new google.maps.Marker({
+                    position: pos,
+                    icon: "turistic-icon.png"
+                });
+            }
 
             item.marker.addListener('click', function () {
                 if (clickedClinic == false) {

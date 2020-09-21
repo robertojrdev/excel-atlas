@@ -1,6 +1,10 @@
 
+//types
 let typeofclinic = document.getElementById("check-typeofclinic");
 let typeofintervention = document.getElementById("check-typeofintervention");
+
+//circuit
+let toggleCircuit = document.getElementById("check-circuit");
 
 // types of clinics
 let toggleAestheticCentre = document.getElementById("check-aestheticcentre");
@@ -13,7 +17,6 @@ let toggleEthnic = document.getElementById("check-ethnic");
 let toggleFaceSurgery = document.getElementById("check-facesurgery");
 let toggleGenital = document.getElementById("check-genital");
 let toggleMommy = document.getElementById("check-mommy");
-let toggleCircuit = document.getElementById("check-circuit");
 
 function getMarkersFromFilter() {
     var list = [];
@@ -28,6 +31,9 @@ function getMarkersFromFilter() {
         if(item.dateopen < sliderRange[0] || item.dateopen > sliderRange[1])
             return;
 
+        if (toggleCircuit.checked == true && item.circuit == "false")
+            return;
+
         if(typeofclinic.checked == true)
         {
             if (toggleAestheticCentre.checked == true && item.aestheticcentre == "false")
@@ -38,8 +44,6 @@ function getMarkersFromFilter() {
 
         if(typeofintervention.checked == true)
         {
-            if (toggleCircuit.checked == true && item.circuit == "false")
-                return;
             if (toggleMommy.checked == true && item.mommy == "false")
                 return;
             if (toggleAntiAging.checked == true && item.antiaging == "false")
