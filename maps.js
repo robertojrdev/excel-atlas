@@ -38,7 +38,7 @@ function loadMarkers() {
             {
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: "turistic-icon.png"
+                    icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/info-i_maps.png"
                 });
             }
 
