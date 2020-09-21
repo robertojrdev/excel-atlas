@@ -36,11 +36,11 @@
                     <h3>Browse by</h3>
                     <div class="checkbox-container">
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-typeofclinic" onclick="toggleSections('intervention')" checked/>
+                            <input type="checkbox" id="check-typeofclinic" onclick="toggleSections('intervention'); updateMarkers()" checked/>
                             <label for="myChk2">Type of clinic</label>
                         </div>
                         <div class="checkbox-inside-container">
-                            <input type="checkbox" id="check-typeofintervention" class="" onclick="toggleSections('aesthetic')"/>
+                            <input type="checkbox" id="check-typeofintervention" class="" onclick="toggleSections('aesthetic'); updateMarkers()"/>
                             <label for="myChk">Type of intervention</label>
                         </div>
                     </div>
