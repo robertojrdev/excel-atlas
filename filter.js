@@ -1,14 +1,13 @@
 
 let toggleHtInvasive = document.getElementById("check-htinvasive");
 let toggleHtNonInvasive = document.getElementById("check-htnoninvasive");
-let toggleCircuit = document.getElementById("check-circuit");
-let toggleDermatology = document.getElementById("check-dermatology");
-let toggleMommy = document.getElementById("check-mommy");
 let toggleAntiAging = document.getElementById("check-antiaging");
-let toggleGenital = document.getElementById("check-genital");
-let toggleEthnic = document.getElementById("check-ethnic");
 let toggleBodyshaping = document.getElementById("check-bodyshaping");
+let toggleEthnic = document.getElementById("check-ethnic");
 let toggleFaceSurgery = document.getElementById("check-facesurgery");
+let toggleGenital = document.getElementById("check-genital");
+let toggleMommy = document.getElementById("check-mommy");
+let toggleCircuit = document.getElementById("check-circuit");
 
 function getMarkersFromFilter() {
     var list = [];
@@ -27,8 +26,6 @@ function getMarkersFromFilter() {
         if (toggleHtNonInvasive.checked == true && item.htnoninvasive == "false")
             return;
         if (toggleCircuit.checked == true && item.circuit == "false")
-            return;
-        if (toggleDermatology.checked == true && item.dermatology == "false")
             return;
         if (toggleMommy.checked == true && item.mommy == "false")
             return;
