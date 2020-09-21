@@ -18,6 +18,12 @@ function initMap() {
 function loadMarkers() {
     markers = [];
 
+    var icons = {
+        circuit: {
+          icon: 'turistic-icon.png'
+        }
+      };
+
     Object.keys(databaseData).forEach(function (key) {
 
         var item = databaseData[key];
@@ -38,7 +44,7 @@ function loadMarkers() {
             {
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: "https://github.com/robertojrdev/excel-atlas/blob/master/turistic-icon.png"
+                    icon: icons.circuit.icon
                 });
             }
 
