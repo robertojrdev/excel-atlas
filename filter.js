@@ -1,6 +1,12 @@
 
-let toggleHtInvasive = document.getElementById("check-htinvasive");
-let toggleHtNonInvasive = document.getElementById("check-htnoninvasive");
+let typeofclinic = document.getElementById("check-typeofclinic");
+let typeofintervention = document.getElementById("check-typeofintervention");
+
+// types of clinics
+let toggleAestheticCentre = document.getElementById("check-aestheticcentre");
+let toggleAestheticMedicine = document.getElementById("check-aestheticmedicine");
+
+//types of intervention
 let toggleAntiAging = document.getElementById("check-antiaging");
 let toggleBodyshaping = document.getElementById("check-bodyshaping");
 let toggleEthnic = document.getElementById("check-ethnic");
@@ -21,24 +27,32 @@ function getMarkersFromFilter() {
 
         if(item.dateopen < sliderRange[0] || item.dateopen > sliderRange[1])
             return;
-        if (toggleHtInvasive.checked == true && item.htinvasive == "false")
-            return;
-        if (toggleHtNonInvasive.checked == true && item.htnoninvasive == "false")
-            return;
-        if (toggleCircuit.checked == true && item.circuit == "false")
-            return;
-        if (toggleMommy.checked == true && item.mommy == "false")
-            return;
-        if (toggleAntiAging.checked == true && item.antiaging == "false")
-            return;
-        if (toggleGenital.checked == true && item.genital == "false")
-            return;
-        if (toggleEthnic.checked == true && item.ethnic == "false")
-            return;
-        if (toggleBodyshaping.checked == true && item.bodyshaping == "false")
-            return;
-        if (toggleFaceSurgery.checked == true && item.facesurgery == "false")
-            return;
+
+        if(typeofclinic.checked == true)
+        {
+            if (toggleAestheticCentre.checked == true && item.aestheticcentre == "false")
+                return;
+            if (toggleAestheticMedicine.checked == true && item.aestheticmedicine == "false")
+                return;
+        }
+
+        if(typeofintervention.checked == true)
+        {
+            if (toggleCircuit.checked == true && item.circuit == "false")
+                return;
+            if (toggleMommy.checked == true && item.mommy == "false")
+                return;
+            if (toggleAntiAging.checked == true && item.antiaging == "false")
+                return;
+            if (toggleGenital.checked == true && item.genital == "false")
+                return;
+            if (toggleEthnic.checked == true && item.ethnic == "false")
+                return;
+            if (toggleBodyshaping.checked == true && item.bodyshaping == "false")
+                return;
+            if (toggleFaceSurgery.checked == true && item.facesurgery == "false")
+                return;
+        }
 
         list.push(item.marker);
     });
