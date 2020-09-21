@@ -8,6 +8,8 @@ let toggleMommy = document.getElementById("check-mommy");
 let toggleAntiAging = document.getElementById("check-antiaging");
 let toggleGenital = document.getElementById("check-genital");
 let toggleEthnic = document.getElementById("check-ethnic");
+let toggleBodyshaping = document.getElementById("check-bodyshaping");
+let toggleFaceSurgery = document.getElementById("check-facesurgery");
 
 function getMarkersFromFilter() {
     var list = [];
@@ -38,6 +40,10 @@ function getMarkersFromFilter() {
         if (toggleGenital.checked == true && item.genital == "false")
             return;
         if (toggleEthnic.checked == true && item.ethnic == "false")
+            return;
+        if (toggleBodyshaping.checked == true && item.bodyshaping == "false")
+            return;
+        if (toggleFaceSurgery.checked == true && item.facesurgery == "false")
             return;
 
         list.push(item.marker);
