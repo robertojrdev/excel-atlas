@@ -38,7 +38,7 @@ function loadMarkers() {
             {
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: "https://cdn.discordapp.com/attachments/442747217519050752/757757449339142164/turistic-icon.png"
+                    icon: "https://cdn.discordapp.com/attachments/442747217519050752/757758253882015779/turistic-icon.png"
                 });
             }
 
