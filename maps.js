@@ -18,12 +18,6 @@ function initMap() {
 function loadMarkers() {
     markers = [];
 
-    var icons = {
-        circuit: {
-          icon: 'icon-phone.png'
-        }
-      };
-
     Object.keys(databaseData).forEach(function (key) {
 
         var item = databaseData[key];
@@ -44,7 +38,7 @@ function loadMarkers() {
             {
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: icons.circuit.icon
+                    icon: "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
                 });
             }
 
