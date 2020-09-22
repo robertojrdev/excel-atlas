@@ -38,7 +38,7 @@ function loadMarkers() {
             {
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: "beachflag.png"
+                    icon: "turistic-icon.png"
                 });
             }
 
