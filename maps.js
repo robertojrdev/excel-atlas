@@ -20,7 +20,7 @@ function loadMarkers() {
 
     var icons = {
         circuit: {
-          icon: '/turistic-icon.png?raw=true'
+          icon: 'icon-phone.png'
         }
       };
 
