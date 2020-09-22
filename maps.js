@@ -44,7 +44,7 @@ function loadMarkers() {
             {
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: icons.circuit.icon
+                    icon: "icons.circuit.icon?raw=true"
                 });
             }
 
