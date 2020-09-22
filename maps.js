@@ -20,7 +20,7 @@ function loadMarkers() {
 
     var icons = {
         circuit: {
-          icon: 'turistic-icon.png'
+          icon: '/turistic-icon.png'
         }
       };
 
@@ -44,7 +44,7 @@ function loadMarkers() {
             {
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: "icons.circuit.icon?raw=true"
+                    icon: icons.circuit.icon
                 });
             }
 
