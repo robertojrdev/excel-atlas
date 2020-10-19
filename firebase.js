@@ -15,7 +15,7 @@ var database = firebase.database();
 var ref = database.ref('1ex4NhosRYg7NvCYOA0FdScx8tcdg39OFF51iXvx15Tw');
 ref.on('value', dataHandle, dataError);
 
-let clinicAudio = document.querySelector(".audio-player");
+let clinicAudio = document.getElementById("audio-player");
 let clinicImage = document.querySelector(".img-slider");
 let clinicName = document.querySelector(".clinic-name");
 let clinicWebsite = document.getElementById("clinic-website");
