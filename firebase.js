@@ -15,6 +15,7 @@ var database = firebase.database();
 var ref = database.ref('1ex4NhosRYg7NvCYOA0FdScx8tcdg39OFF51iXvx15Tw');
 ref.on('value', dataHandle, dataError);
 
+let clinicAudio = document.querySelector(".audio-player");
 let clinicImage = document.querySelector(".img-slider");
 let clinicName = document.querySelector(".clinic-name");
 let clinicWebsite = document.getElementById("clinic-website");
@@ -67,6 +68,7 @@ function getClinicInfo(id) {
 
 function changeDescriptions(clinic) {
     clinicImage.src = clinic.imagelink;
+    clinicAudio.src = getPlayableAudioLinkFromId(extractGoogleFileIdFromLink(clinic.audiolink));
     clinicName.innerText = clinic.name;
     clinicWebsite.innerText = clinic.website;
     clinicWebsite.href = clinic.website;
@@ -155,4 +157,17 @@ function updateSlider()
             }
         }
     });
+}
+
+function extractGoogleFileIdFromLink(link)
+{
+    var pattern = /\/d\/(.+)\//i;
+    var match = pattern.exec(link);
+    var id = match[1];
+    return id;
+}
+
+function getPlayableAudioLinkFromId(id)
+{
+    return "https://docs.google.com/uc?export=download&id=" + id;
 }
