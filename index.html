@@ -248,6 +248,8 @@
         const filterContainer = document.querySelector(".filters-container");
         const switchButton = document.querySelector(".switch-button");
         const switchButtonIcon = document.querySelector(".switchIcons");
+        const closeButton = document.querySelector(".close-button");
+        
         switchButton.classList.add("hidden");
         function switchPanels() {
             if (!descriptionPanel.classList.contains("hidden")) {
@@ -268,7 +270,7 @@
             else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
             {
                 descriptionPanel.classList.remove("hidden");
-                document.querySelector(".close-button").classList.remove("hidden");
+                closeButton.classList.remove("hidden");
                 console.log("a")
             }
         }
@@ -278,7 +280,7 @@
             {
                 filterContainer.classList.add("hidden"); 
                 descriptionPanel.classList.add("hidden");
-                document.querySelector(".close-button").classList.add("hidden");
+                closeButton.classList.add("hidden");
                 console.log("b")
             }
             else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
