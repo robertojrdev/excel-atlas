@@ -268,6 +268,7 @@
             else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
             {
                 descriptionPanel.classList.remove("hidden");
+                document.querySelector(".close-button").classList.remove("hidden");
             }
         }
 
@@ -276,6 +277,7 @@
             {
                 filterContainer.classList.add("hidden");
                 descriptionPanel.classList.add("hidden");
+                document.querySelector(".close-button").classList.add("hidden");
             }
             else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
             {
