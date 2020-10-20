@@ -250,7 +250,7 @@
         const switchButtonIcon = document.querySelector(".switchIcons");
         const closeButton = document.querySelector("#close-button");
         
-        // switchButton.classList.add("hidden"); 
+        switchButton.classList.add("hidden");
         function switchPanels() {
             if (!descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.add("hidden");
@@ -260,6 +260,7 @@
                 switchButtonIcon.classList.add("fa-chevron-up");
                 console.log("1");
                 closeButton.classList.remove("hidden");
+                switchButton.classList.remove("hidden");
             }
             else if(descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.remove("hidden");
@@ -268,6 +269,7 @@
                 switchButtonIcon.classList.add("fa-filter");
                 switchButtonIcon.classList.remove("fa-chevron-up");
                 closeButton.classList.remove("hidden");
+                switchButton.classList.remove("hidden");
             }
             else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
             {
