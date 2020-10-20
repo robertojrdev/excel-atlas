@@ -1,28 +1,41 @@
-var slideIndex = 1;
-showSlides(slideIndex);
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+
+function SetImages(imagesRef)
+{
+    let container = document.querySelector(".carousel-inner");
+
+    let pattern = "<div class=\"carousel-item {0}\"> <img class=\"d-block w-100\" src=\"{1}\" alt=\"First slide\"></div>";
+    let totalHtml = "";
+
+    for (let i = 0; i < imagesRef.length; i++) 
+    {
+        const img = imagesRef[i];
+        if(img == "")
+            continue;
+
+        var htmlItem = pattern.replace("{0}", i === 0 ? "active" : "").replace("{1}", img);
+        totalHtml += "\n" + htmlItem;
+    }
+
+    container.innerHTML = totalHtml;
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+function SetAudios(audiosRef)
+{
+    let container = document.querySelector(".audios");
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("img-container");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+    let pattern = "<audio controls class=\"audio-player\"><source src=\"{0}\" type=\"audio/mpeg\">{1}</audio>";
+    let totalHtml = "";
+
+    for (let i = 0; i < imagesRef.length; i++) 
+    {
+        const audio = audiosRef[i];
+        if(audio == "")
+            continue;
+
+        var htmlItem = pattern.replace("{0}", audio).replace("{1}", i === 0 ? "Your browser does not support the audio element." : "");
+        totalHtml += "\n" + htmlItem;
+    }
+
+    container.innerHTML = totalHtml;
 }

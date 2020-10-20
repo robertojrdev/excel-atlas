@@ -15,8 +15,6 @@ var database = firebase.database();
 var ref = database.ref('1ex4NhosRYg7NvCYOA0FdScx8tcdg39OFF51iXvx15Tw');
 ref.on('value', dataHandle, dataError);
 
-let clinicAudio = document.querySelector(".audio-player");
-let clinicImage = document.querySelector(".img-slider");
 let clinicName = document.querySelector(".clinic-name");
 let clinicWebsite = document.getElementById("clinic-website");
 let clinicPhone = document.getElementById("clinic-phone");
@@ -67,8 +65,9 @@ function getClinicInfo(id) {
 }
 
 function changeDescriptions(clinic) {
-    clinicImage.src = clinic.imagelink;
-    clinicAudio.src = getPlayableAudioLinkFromId(extractGoogleFileIdFromLink(clinic.audiolink));
+    // clinicImage.src = clinic.imagelink;
+    SetImages(getImagesLinks(clinic));
+    SetAudios(getAudiosLinks(clinic));
     clinicName.innerText = clinic.name;
     clinicWebsite.innerText = clinic.website;
     clinicWebsite.href = clinic.website;
@@ -157,6 +156,30 @@ function updateSlider()
             }
         }
     });
+}
+
+function getImagesLinks(clinic)
+{
+    var imgs = [];
+    for (let i = 0; i < 7; i++) {
+        imgs[i] = clinic["imagelink" + i.toString()];
+    }
+
+    return imgs;
+}
+
+function getAudiosLinks(clinic)
+{
+    var audios = [];
+    for (let i = 0; i < 7; i++) {
+        var audioLink = clinic["audiolink" + i.toString()];
+        if(audioLink == "")
+            continue;
+            
+        audios[i] = getPlayableAudioLinkFromId(extractGoogleFileIdFromLink(audioLink));
+    }
+
+    return audios;
 }
 
 function extractGoogleFileIdFromLink(link)
