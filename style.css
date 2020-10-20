@@ -490,7 +490,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     }
     .switch-button
     {
-        left: none;
-        right: 120px;
+        left: none!important;
+        right: 120px!important;
     }
   }
