@@ -483,8 +483,9 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     body {
       background-color: lightblue;
     }
-    .filters-container
+    .filters-container, .description-container
     {
         width: 100%!important;
+        height: 100%!important;
     }
   }
