@@ -162,7 +162,14 @@ function getImagesLinks(clinic)
 {
     var imgs = [];
     for (let i = 0; i < 7; i++) {
-        imgs[i] = clinic["imagelink" + i.toString()];
+        var link = clinic["imagelink" + i.toString()];
+        if(link == "")
+            continue;
+            
+        if(isGoogleDriveLink(link))
+            link = getGoogleDownloadLinkFromId(extractGoogleFileIdFromLink(link));
+            
+        imgs[i] = link;
     }
 
     return imgs;
@@ -175,8 +182,11 @@ function getAudiosLinks(clinic)
         var audioLink = clinic["audiolink" + i.toString()];
         if(audioLink == "")
             continue;
-            
-        audios[i] = getPlayableAudioLinkFromId(extractGoogleFileIdFromLink(audioLink));
+
+        if(isGoogleDriveLink(link))
+            audioLink = getGoogleDownloadLinkFromId(extractGoogleFileIdFromLink(audioLink));
+
+        audios[i] = link;
     }
 
     return audios;
@@ -190,7 +200,12 @@ function extractGoogleFileIdFromLink(link)
     return id;
 }
 
-function getPlayableAudioLinkFromId(id)
+function getGoogleDownloadLinkFromId(id)
 {
     return "https://docs.google.com/uc?export=download&id=" + id;
+}
+
+function isGoogleDriveLink(link)
+{
+    return link.includes("drive.google.com");
 }
