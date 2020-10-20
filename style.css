@@ -500,6 +500,10 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     max-height: 250px!important;
 }
 
+.audio-player {
+    margin-bottom: 20px;
+}
+
 @media only screen and (max-width: 650px) {
     body {
       background-color: lightblue;
