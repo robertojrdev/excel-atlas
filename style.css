@@ -89,7 +89,7 @@ p {
     width: 500px;
     top: 0;
     margin: 0px;
-    z-index: 1;
+    z-index: 0;
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
@@ -477,4 +477,43 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     from {opacity: .4}
     to {opacity: 1}
   }
+
+  .close-button {
+    visibility: hidden;
+    width: 80px;
+    height: 80px;
+    border-radius: 150px;
+    background: white;
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 550px;
+    z-index: 1;
+    border: none;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+    transition: .5s;
+    outline: none;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+    body {
+      background-color: lightblue;
+    }
+    .filters-container, .description-container
+    {
+        width: 100%!important;
+        height: 100%!important;
+    }
+    .switch-button
+    {
+        left: auto!important;
+        right: 120px!important;
+        z-index: 9999999!important;
+    }
+    .close-button {
+        visibility: visible!important;
+        left: auto!important;
+        right: 60px!important;
+    }
 }
