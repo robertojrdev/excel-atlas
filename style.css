@@ -477,7 +477,10 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     from {opacity: .4}
     to {opacity: 1}
   }
-}
+
+  #close-button {
+      visibility: hidden;
+  }
 
 @media only screen and (max-width: 650px) {
     body {
@@ -490,7 +493,10 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     }
     .switch-button
     {
-        left: none!important;
+        left: auto!important;
         right: 120px!important;
+    }
+    #close-button {
+        visibility: visible;
     }
   }
