@@ -515,8 +515,11 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     }
     .switch-button
     {
+        width: 50px;
+        height: 50px;
+        top: 20px!important;
         left: auto!important;
-        right: 120px!important;
+        right: 0px!important;
         z-index: 9999999!important;
     }
     .close-button {
