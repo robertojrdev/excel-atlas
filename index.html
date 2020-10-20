@@ -18,7 +18,7 @@
         <button class="switch-button" onclick="switchPanels()"><i class="fas fa-filter switchIcons"></i></button>
 
         <div id="map-container" class="">
-            <button class="close-button" onclick="closePanels()"><i class="fas fa-times"></i></button>
+            <button class="close-button" id="close-button" onclick="closePanels()"><i class="fas fa-times"></i></button>
             <div id="map"></div>
             <div class="filters-container hidden">
                 <div class="filters-inside-container">
@@ -248,7 +248,7 @@
         const filterContainer = document.querySelector(".filters-container");
         const switchButton = document.querySelector(".switch-button");
         const switchButtonIcon = document.querySelector(".switchIcons");
-        const closeButton = document.querySelector(".close-button");
+        const closeButton = document.querySelector("#close-button");
         
         switchButton.classList.add("hidden");
         function switchPanels() {
@@ -259,6 +259,7 @@
                 switchButtonIcon.classList.remove("fa-filter");
                 switchButtonIcon.classList.add("fa-chevron-up");
                 console.log("1");
+                closeButton.classList.remove("hidden");
             }
             else if(descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.remove("hidden");
@@ -266,6 +267,7 @@
                 switchButton.classList.remove("rotated");
                 switchButtonIcon.classList.add("fa-filter");
                 switchButtonIcon.classList.remove("fa-chevron-up");
+                closeButton.classList.remove("hidden");
             }
             else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
             {
