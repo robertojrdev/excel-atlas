@@ -268,7 +268,15 @@
         }
 
         function closePanels() {
-            descriptionPanel.classList.toggle("hidden");
+            if(descriptionPanel.classList.contains("hidden") || filterContainer.classList.contains("hidden"))
+            {
+                filterContainer.classList.add("hidden");
+                descriptionPanel.classList.add("hidden");
+            }
+            else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
+            {
+                descriptionPanel.classList.toggle("hidden");
+            }
         }
 
         switchPanels();
