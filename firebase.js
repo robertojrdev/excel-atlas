@@ -183,7 +183,7 @@ function getAudiosLinks(clinic)
         if(audioLink == "")
             continue;
 
-        if(isGoogleDriveLink(link))
+        if(isGoogleDriveLink(audioLink))
             audioLink = getGoogleDownloadLinkFromId(extractGoogleFileIdFromLink(audioLink));
 
         audios[i] = link;
