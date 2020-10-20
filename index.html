@@ -20,6 +20,7 @@
         <div id="map-container" class="">
             <button class="close-button" id="close-button" onclick="closePanels()"><i class="fas fa-times"></i></button>
             <div id="map"></div>
+            <span class="left-panel">
             <div class="filters-container hidden">
                 <div class="filters-inside-container">
                     <h2 class="center-txt title" style="margin-top: 0px">Filters</h2>
@@ -205,6 +206,7 @@
                 </div>
             </div>
         </div>
+    </span>
         <!-- END OF DESCRIPTION CONTAINER -->
     </div>
     <div id="fake-container"></div>
@@ -249,6 +251,7 @@
         const switchButton = document.querySelector(".switch-button");
         const switchButtonIcon = document.querySelector(".switchIcons");
         const closeButton = document.querySelector("#close-button");
+        const leftPanel = document.querySelector(".left-panel");
         
         switchButton.classList.add("hidden");
         function switchPanels() {
@@ -259,8 +262,6 @@
                 switchButtonIcon.classList.remove("fa-filter");
                 switchButtonIcon.classList.add("fa-chevron-up");
                 console.log("1");
-                closeButton.classList.remove("hidden");
-                switchButton.classList.remove("hidden");
             }
             else if(descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.remove("hidden");
@@ -268,30 +269,11 @@
                 switchButton.classList.remove("rotated");
                 switchButtonIcon.classList.add("fa-filter");
                 switchButtonIcon.classList.remove("fa-chevron-up");
-                closeButton.classList.remove("hidden");
-                switchButton.classList.remove("hidden");
-            }
-            else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
-            {
-                descriptionPanel.classList.remove("hidden");
-                closeButton.classList.remove("hidden");
-                console.log("a")
             }
         }
 
         function closePanels() {
-            if(descriptionPanel.classList.contains("hidden") || filterContainer.classList.contains("hidden"))
-            {
-                filterContainer.classList.add("hidden"); 
-                descriptionPanel.classList.add("hidden");
-                closeButton.classList.add("hidden");
-                console.log("b")
-            }
-            else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
-            {
-                descriptionPanel.classList.remove("hidden");
-                console.log("c")
-            }
+            leftPanel.classList.toggle("hidden");
         }
 
         switchPanels();
