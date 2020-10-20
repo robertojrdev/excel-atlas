@@ -27,7 +27,7 @@ function SetAudios(audiosRef)
     let pattern = "<audio controls class=\"audio-player\"><source src=\"{0}\" type=\"audio/mpeg\">{1}</audio>";
     let totalHtml = "";
 
-    for (let i = 0; i < imagesRef.length; i++) 
+    for (let i = 0; i < audiosRef.length; i++) 
     {
         const audio = audiosRef[i];
         if(audio == "")
