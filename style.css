@@ -488,4 +488,9 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
         width: 100%!important;
         height: 100%!important;
     }
+    .switch-button
+    {
+        left: none;
+        right: 120px;
+    }
   }
