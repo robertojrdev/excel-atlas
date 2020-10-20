@@ -258,12 +258,16 @@
                 switchButtonIcon.classList.add("fa-chevron-up");
                 console.log("1");
             }
-            else {
+            else if(descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.remove("hidden");
                 filterContainer.classList.add("hidden");
                 switchButton.classList.remove("rotated");
                 switchButtonIcon.classList.add("fa-filter");
                 switchButtonIcon.classList.remove("fa-chevron-up");
+            }
+            else if (descriptionPanel.classList.contains("hidden") && filterContainer.classList.contains("hidden"))
+            {
+                descriptionPanel.classList.remove("hidden");
             }
         }
 
