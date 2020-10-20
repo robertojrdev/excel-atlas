@@ -510,7 +510,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
         left: auto!important;
         right: 120px!important;
     }
-    #close-button {
+    .close-button {
         visibility: visible!important;
         left: auto!important;
         right: 60px!important;
