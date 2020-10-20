@@ -496,6 +496,10 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
   }
 }
 
+.carousel-item {
+    max-height: 250px;
+}
+
 @media only screen and (max-width: 650px) {
     body {
       background-color: lightblue;
