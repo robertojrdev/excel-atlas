@@ -508,7 +508,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     .close-button {
         visibility: visible!important;
         left: auto!important;
-        right: 25px!important;
+        right: 24px!important;
         width: 50px!important;
         height: 50px!important;
         border-radius: 150px!important;
@@ -520,7 +520,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
         border: none!important;
         box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2)!important;
         transition: .5s!important;
-        outline: none!important; 
+        outline: none!important;
     }
 
     .close-button i {
