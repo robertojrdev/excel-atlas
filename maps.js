@@ -46,7 +46,7 @@ function loadMarkers() {
                 if (clickedClinic == false) {
                     switchButton.classList.remove("hidden");
                     clickedClinic = true;
-                    openClinicDescription()
+                    openClinicDescription();
                 }
                 if(descriptionPanel.classList.contains("hidden")) {
                     openClinicDescription();

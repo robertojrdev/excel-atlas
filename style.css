@@ -198,6 +198,7 @@ html,
 }
 
 .switch-button {
+    visibility: hidden!important;
     width: 80px;
     height: 80px;
     border-radius: 150px;
@@ -219,6 +220,33 @@ html,
 }
 
 .switch-button i {
+    transition: .5s;
+    font-size: 2em;
+    color: #1A73E8;
+}
+
+.switch-button-desktop {
+    width: 80px;
+    height: 80px;
+    border-radius: 150px;
+    background: white;
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 550px;
+    z-index: 1;
+    border: none;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+    transition: .5s;
+    outline: none !important;
+}
+
+.rotated {
+    transition: .5s;
+    transform: rotate(270deg);
+}
+
+.switch-button-desktop i {
     transition: .5s;
     font-size: 2em;
     color: #1A73E8;
@@ -498,6 +526,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
     }
     .switch-button
     {
+        visibility: visible!important;
         width: 50px;
         height: 50px;
         top: 20px!important;
@@ -527,5 +556,9 @@ span.ui-slider-handle.ui-corner-all.ui-state-default {
         transition: .5s!important;
         font-size: 2em!important;
         color: #1A73E8!important;
+    }
+
+    .switch-button-desktop {
+        visibility: hidden!important;
     }
 }
