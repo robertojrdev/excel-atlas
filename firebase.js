@@ -85,6 +85,7 @@ function SetInput(clinicParam, elementId)
     var element = document.getElementById(elementId);
     console.log(element);
     console.log(clinicParam);
+    console.log(typeof(clinicParam));
     console.log(clinicParam == false);
 
     if (clinicParam == false){
