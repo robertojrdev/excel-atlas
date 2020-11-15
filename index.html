@@ -15,7 +15,7 @@
 <body>
     <!-- PAGE -->
     <div class="page-container">
-        <button class="switch-button" onclick="switchPanels()"><i class="fas fa-filter switchIcons"></i></button>
+        <button class="switch-button" onclick="openFilters()"><i class="fas fa-filter switchIcons"></i></button>
 
         <div id="map-container" class="">
             <button class="close-button" id="close-button" onclick="closePanels()"><i class="fas fa-times"></i></button>
@@ -90,7 +90,7 @@
             </div>
             <!-- END OF FILTERS CONTAINER -->
             <!-- DESCRIPTION CONTAINER -->
-            <div class="description-container">
+            <div class="description-container hidden">
                 <div class="img-container">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -253,7 +253,6 @@
         const closeButton = document.querySelector("#close-button");
         const leftPanel = document.querySelector(".left-panel");
         
-        switchButton.classList.add("hidden");
         function switchPanels() {
             if (!descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.add("hidden");
@@ -272,10 +271,20 @@
             }
         }
 
-        function closePanels() {
+        function openFilters() {
+            if(filterContainer.classList.contains("hidden"))
+                filterContainer.classList.remove("hidden")
         }
 
-        switchPanels();
+        function closePanels() {
+            if(!descriptionPanel.classList.contains("hidden"))
+                descriptionPanel.classList.add("hidden")
+
+            if(!filterContainer.classList.contains("hidden"))
+            filterContainer.classList.add("hidden")
+
+            console.log("Close panels")
+        }
         // SWITCH PANELS
 
         const aestheticChecker = document.querySelector("#check-typeofintervention");
