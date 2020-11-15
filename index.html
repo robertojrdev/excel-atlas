@@ -16,7 +16,7 @@
     <!-- PAGE -->
     <div class="page-container">
         <button class="switch-button" onclick="openFilters()"><i class="fas fa-filter switchIcons"></i></button>
-        <button class="switch-button-desktop" onclick="switchPanels()"><i class="fas fa-filter switchIcons"></i></button>
+        <button class="switch-button-desktop" onclick="switchPanels()"><i class="fas fa-filter switchIconsDesktop"></i></button>
 
         <div id="map-container" class="">
             <button class="close-button hidden" id="close-button" onclick="closePanels()"><i class="fas fa-times"></i></button>
@@ -250,7 +250,8 @@
         const descriptionPanel = document.querySelector(".description-container");
         const filterContainer = document.querySelector(".filters-container");
         const switchButton = document.querySelector(".switch-button");
-        const switchButtonIcon = document.querySelector(".switchIcons");
+        const switchButtonDesktop = document.querySelector(".switch-button-desktop");
+        const switchButtonIcon = document.querySelector(".switchIconsDesktop");
         const closeButton = document.querySelector("#close-button");
         const leftPanel = document.querySelector(".left-panel");
         
@@ -258,7 +259,7 @@
             if (!descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.add("hidden");
                 filterContainer.classList.remove("hidden");
-                switchButton.classList.add("rotated");
+                switchButtonDesktop.classList.add("rotated");
                 switchButtonIcon.classList.remove("fa-filter");
                 switchButtonIcon.classList.add("fa-chevron-up");
                 console.log("1");
@@ -266,7 +267,7 @@
             else if(descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.remove("hidden");
                 filterContainer.classList.add("hidden");
-                switchButton.classList.remove("rotated");
+                switchButtonDesktop.classList.remove("rotated");
                 switchButtonIcon.classList.add("fa-filter");
                 switchButtonIcon.classList.remove("fa-chevron-up");
             }
