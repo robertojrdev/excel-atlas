@@ -271,6 +271,17 @@
             }
         }
 
+        function openClinicDescription() {
+            if(!filterContainer.classList.contains("hidden"))
+            filterContainer.classList.add("hidden")
+
+            if(descriptionPanel.classList.contains("hidden"))
+                descriptionPanel.classList.remove("hidden")
+
+            switchButton.classList.add("hidden")
+            closeButton.classList.remove("hidden")
+        }
+
         function openFilters() {
             if(filterContainer.classList.contains("hidden"))
                 filterContainer.classList.remove("hidden")

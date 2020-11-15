@@ -46,10 +46,10 @@ function loadMarkers() {
                 if (clickedClinic == false) {
                     switchButton.classList.remove("hidden");
                     clickedClinic = true;
-                    switchPanels();
+                    openClinicDescription()
                 }
                 if(descriptionPanel.classList.contains("hidden")) {
-                    switchPanels();
+                    openClinicDescription();
                 }
                 zoomInMarker(item.marker);
                 changeDescriptions(item);
