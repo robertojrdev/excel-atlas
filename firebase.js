@@ -76,7 +76,7 @@ function changeDescriptions(clinic) {
 }
 
 function toggleInputs(clinic) {
-    print("CALLED TOGGLE INPUTS")
+    console.log("CALLED TOGGLE INPUTS")
     toggleInput(clinic.antiaging, hasAntiAging);
     toggleInput(clinic.bodyshaping, hasBodyShaping);
     toggleInput(clinic.ethnic, hasEthnic);
