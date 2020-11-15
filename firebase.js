@@ -22,13 +22,6 @@ let clinicAddress = document.getElementById("clinic-address");
 let clinicDescription = document.getElementById("clinic-description");
 let clinicResearch = document.getElementById("clinic-research");
 
-let hasAntiAging = document.getElementById("has-antiaging");
-let hasBodyShaping = document.getElementById("has-bodyshaping");
-let hasEthnic = document.getElementById("has-ethnic");
-let hasFaceSurgery = document.getElementById("has-facesurgery");
-let hasGenital = document.getElementById("has-genital");
-let hasMommy = document.getElementById("has-mommy");
-
 let minMaxDates;
 
 var databaseData;
@@ -77,17 +70,20 @@ function changeDescriptions(clinic) {
 
 function toggleInputs(clinic) {
     console.log("CALLED TOGGLE INPUTS")
-    toggleInput(clinic.antiaging, hasAntiAging);
-    toggleInput(clinic.bodyshaping, hasBodyShaping);
-    toggleInput(clinic.ethnic, hasEthnic);
-    toggleInput(clinic.facesurgery, hasFaceSurgery);
-    toggleInput(clinic.genital, hasGenital);
-    toggleInput(clinic.mommy, hasMommy);
+
+    toggleInput(clinic.antiaging, "has-antiaging");
+    toggleInput(clinic.bodyshaping, "has-bodyshaping");
+    toggleInput(clinic.ethnic, "has-ethnic");
+    toggleInput(clinic.facesurgery, "has-facesurgery");
+    toggleInput(clinic.genital, "has-genital");
+    toggleInput(clinic.mommy, "has-mommy");
 }
 
-function toggleInput(clinicParam, element)
+function toggleInput(clinicParam, elementId)
 {
     var className = "hidden";
+    var element = document.getElementById(elementId);
+
     if (clinicParam == "false"){
         element.classList.remove(className);
         element.classList.add(className);
