@@ -18,8 +18,9 @@
         <button class="switch-button" onclick="switchPanels()"><i class="fas fa-filter switchIcons"></i></button>
 
         <div id="map-container" class="">
-            <button class="close-button" onclick="closePanels()"><i class="fas fa-filter switchIcons"></i></button>
+            <button class="close-button" id="close-button" onclick="closePanels()"><i class="fas fa-times"></i></button>
             <div id="map"></div>
+            <span class="left-panel">
             <div class="filters-container hidden">
                 <div class="filters-inside-container">
                     <h2 class="center-txt title" style="margin-top: 0px">Filters</h2>
@@ -172,6 +173,7 @@
                 <div class="description-block audios">
                 </div>
 
+                <div class="divider"></div>
                 <!-- <img src="https://i.imgur.com/D4D493q.png" alt=""
                     style="height: auto; width: 450px; align-self: center"> -->
 
@@ -204,6 +206,7 @@
                 </div>
             </div>
         </div>
+    </span>
         <!-- END OF DESCRIPTION CONTAINER -->
     </div>
     <div id="fake-container"></div>
@@ -247,6 +250,9 @@
         const filterContainer = document.querySelector(".filters-container");
         const switchButton = document.querySelector(".switch-button");
         const switchButtonIcon = document.querySelector(".switchIcons");
+        const closeButton = document.querySelector("#close-button");
+        const leftPanel = document.querySelector(".left-panel");
+        
         switchButton.classList.add("hidden");
         function switchPanels() {
             if (!descriptionPanel.classList.contains("hidden")) {
@@ -257,13 +263,16 @@
                 switchButtonIcon.classList.add("fa-chevron-up");
                 console.log("1");
             }
-            else {
+            else if(descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.remove("hidden");
                 filterContainer.classList.add("hidden");
                 switchButton.classList.remove("rotated");
                 switchButtonIcon.classList.add("fa-filter");
                 switchButtonIcon.classList.remove("fa-chevron-up");
             }
+        }
+
+        function closePanels() {
         }
 
         switchPanels();
