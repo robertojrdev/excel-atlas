@@ -63,26 +63,27 @@ function changeDescriptions(clinic) {
     clinicAddress.innerText = clinic.address;
     clinicDescription.innerText = clinic.description;
     clinicResearch.innerText = clinic.research;
-    toggleInputs(clinic);
+    SetTheInputs(clinic);
     SetImages(getImagesLinks(clinic));
     SetAudios(getAudiosLinks(clinic));
 }
 
-function toggleInputs(clinic) {
+function SetTheInputs(clinic) {
     console.log("CALLED TOGGLE INPUTS")
 
-    toggleInput(clinic.antiaging, "has-antiaging");
-    toggleInput(clinic.bodyshaping, "has-bodyshaping");
-    toggleInput(clinic.ethnic, "has-ethnic");
-    toggleInput(clinic.facesurgery, "has-facesurgery");
-    toggleInput(clinic.genital, "has-genital");
-    toggleInput(clinic.mommy, "has-mommy");
+    SetInput(clinic.antiaging, "has-antiaging");
+    SetInput(clinic.bodyshaping, "has-bodyshaping");
+    SetInput(clinic.ethnic, "has-ethnic");
+    SetInput(clinic.facesurgery, "has-facesurgery");
+    SetInput(clinic.genital, "has-genital");
+    SetInput(clinic.mommy, "has-mommy");
 }
 
-function toggleInput(clinicParam, elementId)
+function SetInput(clinicParam, elementId)
 {
     var className = "hidden";
     var element = document.getElementById(elementId);
+    console.log(element);
 
     if (clinicParam == "false"){
         element.classList.remove(className);
