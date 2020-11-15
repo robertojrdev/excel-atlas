@@ -248,8 +248,6 @@
             }
         }
 
-        checkIfDesktop();
-
         function switchPanels() {
             if (!descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.add("hidden");
@@ -267,6 +265,8 @@
                 switchButtonIcon.classList.remove("fa-chevron-up");
             }
         }
+
+        checkIfDesktop();
 
         function openClinicDescription() {
             if(!filterContainer.classList.contains("hidden"))
