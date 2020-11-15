@@ -63,8 +63,6 @@ function getClinicInfo(id) {
 
 function changeDescriptions(clinic) {
     // clinicImage.src = clinic.imagelink;
-    SetImages(getImagesLinks(clinic));
-    SetAudios(getAudiosLinks(clinic));
     clinicName.innerText = clinic.name;
     clinicWebsite.innerText = clinic.website;
     clinicWebsite.href = clinic.website;
@@ -73,9 +71,12 @@ function changeDescriptions(clinic) {
     clinicDescription.innerText = clinic.description;
     clinicResearch.innerText = clinic.research;
     toggleInputs(clinic);
+    SetImages(getImagesLinks(clinic));
+    SetAudios(getAudiosLinks(clinic));
 }
 
 function toggleInputs(clinic) {
+    print("CALLED TOGGLE INPUTS")
     toggleInput(clinic.antiaging, hasAntiAging);
     toggleInput(clinic.bodyshaping, hasBodyShaping);
     toggleInput(clinic.ethnic, hasEthnic);
