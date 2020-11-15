@@ -85,9 +85,9 @@ function SetInput(clinicParam, elementId)
     var element = document.getElementById(elementId);
     console.log(element);
     console.log(clinicParam);
-    console.log(clinicParam == "false");
+    console.log(clinicParam === "false");
 
-    if (clinicParam == "false"){
+    if (clinicParam === "false"){
         element.classList.remove(className);
         element.classList.add(className);
     }
