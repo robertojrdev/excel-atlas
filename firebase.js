@@ -81,9 +81,9 @@ function SetTheInputs(clinic) {
 
 function SetInput(clinicParam, elementId)
 {
-    var className = "hidden";
+    var className = "dspl-nn";
     var element = document.getElementById(elementId);
-    
+
     if (clinicParam == false){
         element.classList.remove(className);
         element.classList.add(className);
