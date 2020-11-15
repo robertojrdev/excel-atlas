@@ -83,11 +83,7 @@ function SetInput(clinicParam, elementId)
 {
     var className = "hidden";
     var element = document.getElementById(elementId);
-    console.log(element);
-    console.log(clinicParam);
-    console.log(typeof(clinicParam));
-    console.log(clinicParam == false);
-
+    
     if (clinicParam == false){
         element.classList.remove(className);
         element.classList.add(className);
