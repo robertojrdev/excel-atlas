@@ -24,7 +24,7 @@ function SetAudios(audiosRef)
 {
     let container = document.querySelector(".audios");
 
-    let pattern = "<audio controls class=\"audio-player\"><source src=\"{0}\" type=\"audio/mpeg\">{1}</audio>";
+    let pattern = "<audio controls class=\"audio-player\" style=\"outline: none;\"><source src=\"{0}\" type=\"audio/mpeg\">{1}</audio>";
     let totalHtml = "";
 
     for (let i = 0; i < audiosRef.length; i++) 
