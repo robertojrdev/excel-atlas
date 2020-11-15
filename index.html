@@ -255,6 +255,15 @@
         const closeButton = document.querySelector("#close-button");
         const leftPanel = document.querySelector(".left-panel");
         
+        function checkIfDesktop() {
+            let windowWidth = $(window).width();;
+            if(windowWidth > 650) {
+                filterContainer.classList.remove("hidden");
+            }
+        }
+
+        checkIfDesktop();
+
         function switchPanels() {
             if (!descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.add("hidden");
