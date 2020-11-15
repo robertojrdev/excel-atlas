@@ -16,7 +16,7 @@
     <!-- PAGE -->
     <div class="page-container">
         <button class="switch-button" onclick="openFilters()"><i class="fas fa-filter switchIcons"></i></button>
-        <button class="switch-button-desktop" onclick="switchPanels()"><i class="fas fa-filter switchIconsDesktop"></i></button>
+        <button class="switch-button-desktop hidden" onclick="switchPanels()"><i class="fas fa-filter switchIconsDesktop"></i></button>
 
         <div id="map-container" class="">
             <button class="close-button hidden" id="close-button" onclick="closePanels()"><i class="fas fa-times"></i></button>
@@ -272,6 +272,9 @@
 
             if(descriptionPanel.classList.contains("hidden"))
                 descriptionPanel.classList.remove("hidden")
+
+            if(switchButtonDesktop.classList.contains("hidden"))
+                switchButtonDesktop.classList.remove("hidden");
 
             switchButton.classList.add("hidden")
             closeButton.classList.remove("hidden")
