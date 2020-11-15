@@ -84,6 +84,7 @@ function SetInput(clinicParam, elementId)
     var className = "hidden";
     var element = document.getElementById(elementId);
     console.log(element);
+    console.log(clinicParam);
     console.log(clinicParam == "false");
 
     if (clinicParam == "false"){
@@ -93,6 +94,12 @@ function SetInput(clinicParam, elementId)
     else
         element.classList.remove(className);
 }
+
+// function GetInputString(clinicParam, name)
+// {
+//     var pattern = "<div class=\"checkbox-inside-container\"><input type=\"checkbox\"checked disabled=\"disabled\"/><label for=\"myChk\">{0}</label></div>";
+
+// }
 
 function getMinMaxDates() {
     var min = 3000;
