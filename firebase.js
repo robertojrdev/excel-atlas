@@ -22,13 +22,6 @@ let clinicAddress = document.getElementById("clinic-address");
 let clinicDescription = document.getElementById("clinic-description");
 let clinicResearch = document.getElementById("clinic-research");
 
-let hasAntiAging = document.getElementById("has-antiaging");
-let hasBodyShaping = document.getElementById("has-bodyshaping");
-let hasEthnic = document.getElementById("has-ethnic");
-let hasFaceSurgery = document.getElementById("has-facesurgery");
-let hasGenital = document.getElementById("has-genital");
-let hasMommy = document.getElementById("has-mommy");
-
 let minMaxDates;
 
 var databaseData;
@@ -70,31 +63,40 @@ function changeDescriptions(clinic) {
     clinicAddress.innerText = clinic.address;
     clinicDescription.innerText = clinic.description;
     clinicResearch.innerText = clinic.research;
-    toggleInputs(clinic);
+    SetTheInputs(clinic);
     SetImages(getImagesLinks(clinic));
     SetAudios(getAudiosLinks(clinic));
 }
 
-function toggleInputs(clinic) {
+function SetTheInputs(clinic) {
     console.log("CALLED TOGGLE INPUTS")
-    toggleInput(clinic.antiaging, hasAntiAging);
-    toggleInput(clinic.bodyshaping, hasBodyShaping);
-    toggleInput(clinic.ethnic, hasEthnic);
-    toggleInput(clinic.facesurgery, hasFaceSurgery);
-    toggleInput(clinic.genital, hasGenital);
-    toggleInput(clinic.mommy, hasMommy);
+
+    SetInput(clinic.antiaging, "has-antiaging");
+    SetInput(clinic.bodyshaping, "has-bodyshaping");
+    SetInput(clinic.ethnic, "has-ethnic");
+    SetInput(clinic.facesurgery, "has-facesurgery");
+    SetInput(clinic.genital, "has-genital");
+    SetInput(clinic.mommy, "has-mommy");
 }
 
-function toggleInput(clinicParam, element)
+function SetInput(clinicParam, elementId)
 {
-    var className = "hidden";
-    if (clinicParam == "false"){
+    var className = "dspl-nn";
+    var element = document.getElementById(elementId);
+
+    if (clinicParam == false){
         element.classList.remove(className);
         element.classList.add(className);
     }
     else
         element.classList.remove(className);
 }
+
+// function GetInputString(clinicParam, name)
+// {
+//     var pattern = "<div class=\"checkbox-inside-container\"><input type=\"checkbox\"checked disabled=\"disabled\"/><label for=\"myChk\">{0}</label></div>";
+
+// }
 
 function getMinMaxDates() {
     var min = 3000;

@@ -250,27 +250,18 @@
             if (!descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.add("hidden");
                 filterContainer.classList.remove("hidden");
-                rotateButton();
+                switchButtonDesktop.classList.remove("rotated");
+                switchButtonIcon.classList.add("fa-filter");
+                switchButtonIcon.classList.remove("fa-chevron-up");
                 console.log("1");
             }
             else if(descriptionPanel.classList.contains("hidden")) {
                 descriptionPanel.classList.remove("hidden");
                 filterContainer.classList.add("hidden");
-                rotateButton();
+                switchButtonDesktop.classList.add("rotated");
+                switchButtonIcon.classList.remove("fa-filter");
+                switchButtonIcon.classList.add("fa-chevron-up");
             }
-        }
-
-        function rotateButtonDefault() {
-            switchButtonDesktop.classList.add("rotated");
-            switchButtonIcon.classList.remove("fa-filter");
-            switchButtonIcon.classList.add("fa-chevron-up");
-        }
-        rotateButtonDefault();
-
-        function rotateButton() {
-            switchButtonDesktop.classList.toggle("rotated");
-            switchButtonIcon.classList.toggle("fa-filter");
-            switchButtonIcon.classList.toggle("fa-chevron-up");
         }
 
         function openClinicDescription() {
@@ -285,7 +276,6 @@
 
             switchButton.classList.add("hidden")
             closeButton.classList.remove("hidden")
-            rotateButton();
         }
 
         function openFilters() {
