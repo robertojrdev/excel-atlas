@@ -67,7 +67,7 @@ function loadMarkers() {
 function AddInfoWindowToMarker(marker, clinic) {
     const pattern = 
         '<div class="description-block">' +
-            '<h4 class="clinic-name">{0}</h4>' +
+            '<h4 class="clinic-name" style="margin-top: 0px">{0}</h4>' +
             '<div class="info-item">' +
                 '<i class="fas fa-globe-americas"></i>' +
                 '<a id="clinic-website" href="">{1}</a>' +
