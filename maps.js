@@ -5,9 +5,9 @@ var map;
 var markers;
 var cluster;
 
-if(google != undefined && map == undefined)
+if (google != undefined && map == undefined)
     initMap();
-    
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -28.024, lng: 140.887 },
@@ -34,8 +34,7 @@ function loadMarkers() {
                     position: pos
                 });
             }
-            else
-            {
+            else {
                 item.marker = new google.maps.Marker({
                     position: pos,
                     icon: "https://github.com/robertojrdev/excel-atlas/blob/master/turisticicon.png?raw=true"
@@ -48,46 +47,14 @@ function loadMarkers() {
                     clickedClinic = true;
                     openClinicDescription();
                 }
-                if(descriptionPanel.classList.contains("hidden")) {
+                if (descriptionPanel.classList.contains("hidden")) {
                     openClinicDescription();
                 }
                 zoomInMarker(item.marker);
                 changeDescriptions(item);
             });
 
-            const contentString =
-            '<div id="content">' +
-            '<div id="siteNotice">' +
-            "</div>" +
-            '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
-            '<div id="bodyContent">' +
-            "<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large " +
-            "sandstone rock formation in the southern part of the " +
-            "Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) " +
-            "south west of the nearest large town, Alice Springs; 450&#160;km " +
-            "(280&#160;mi) by road. Kata Tjuta and Uluru are the two major " +
-            "features of the Uluru - Kata Tjuta National Park. Uluru is " +
-            "sacred to the Pitjantjatjara and Yankunytjatjara, the " +
-            "Aboriginal people of the area. It has many springs, waterholes, " +
-            "rock caves and ancient paintings. Uluru is listed as a World " +
-            "Heritage Site.</p>" +
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">' +
-            "https://en.wikipedia.org/w/index.php?title=Uluru</a> " +
-            "(last visited June 22, 2009).</p>" +
-            "</div>" +
-            "</div>";
-        
-          const infowindow = new google.maps.InfoWindow({
-            content: contentString,
-          });
-
-            item.marker.addListener('mouseover', function() {
-                infowindow.open(map, item.marker);
-            });
-
-            // item.marker.addListener('mouseout', function() {
-            //     infowindow.close();
-            // });
+            AddInfoWindowToMarker(item.marker, item);
 
             markers.push(item.marker);
         }
@@ -97,13 +64,54 @@ function loadMarkers() {
     //     { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 }
 
-function centerMap()
-{
-    map.panBy(-filterContainer.offsetWidth / 2,0);
+function AddInfoWindowToMarker(marker, clinic) {
+    const contentString = 
+        '<div class="description-block">' +
+            '<h2 class="clinic-name">{0}</h2>' +
+            '<div class="info-item">' +
+                '<i class="fas fa-globe-americas"></i>' +
+                '<a id="clinic-website" href="">{1}</a>' +
+            '</div>' +
+            '<div class="info-item">' +
+                '<i class="fas fa-phone-alt"></i>' +
+                '<p id="clinic-phone">{2}</p>' +
+            '</div>' +
+            '<div class="info-item">' +
+                '<i class="fas fa-map-marker-alt"></i>' +
+                '<p id="clinic-address">{3}</p>' +
+            ' </div>' +
+        ' </div>'
+        ;
+
+    var name = clinic.name;
+    var website = clinic.website;
+    var phone = clinic.contacts;
+    var address = clinic.address;
+
+    contentString.
+        replace("{0}", name).
+        replace("{1}", website).
+        replace("{2}", phone).
+        replace("{3}", address);
+
+    const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+    });
+
+    marker.addListener('mouseover', function () {
+        infowindow.open(map, marker);
+    });
+
+    marker.addListener('mouseout', function() {
+        infowindow.close();
+    });
 }
 
-function zoomInMarker(marker)
-{
+function centerMap() {
+    map.panBy(-filterContainer.offsetWidth / 2, 0);
+}
+
+function zoomInMarker(marker) {
     var bounds = new google.maps.LatLngBounds();
     bounds.extend(marker.position);
     map.fitBounds(bounds);
