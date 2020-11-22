@@ -4,6 +4,7 @@ let clickedClinic = false;
 var map;
 var markers;
 var cluster;
+var infoWindowElement;
 var closeInfoWindowWithTimeout;
 
 if (google != undefined && map == undefined)
@@ -19,9 +20,11 @@ function initMap() {
 function loadMarkers() {
     markers = [];
     const infowindow = new google.maps.InfoWindow();
-    // infowindow.addListener('domready', () => {
-    //     infowindowelement.parent().parent().parent().mouseleave(() => infowindow.close(map, marker));
-    // });
+    infoWindowElement = document.querySelector('.gm-style .gm-style-iw');
+    infowindow.addListener('domready', () => {
+        infoWindowElement.mouseover(() => clearTimeout(closeMarkerInfoWithTimeout));
+        infowindowelement.mouseleave(() => infowindow.close(map, marker));
+    });
 
     Object.keys(databaseData).forEach(function (key) {
 
@@ -71,7 +74,7 @@ function loadMarkers() {
 
 function AddInfoWindowToMarker(marker, clinic, infowindow) {
     const pattern = 
-        '<div class="description-block" style="padding: 0px">' +
+        '<div class="description-block" id="infoWindowElement" style="padding: 0px">' +
             '<h4 class="clinic-name" style="padding-top: 0px">{0}</h4>' +
             '<div class="info-item">' +
                 '<i class="fas fa-globe-americas"></i>' +
