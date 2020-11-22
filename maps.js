@@ -65,9 +65,9 @@ function loadMarkers() {
 }
 
 function AddInfoWindowToMarker(marker, clinic) {
-    const contentString = 
+    const pattern = 
         '<div class="description-block">' +
-            '<h2 class="clinic-name">{0}</h2>' +
+            '<h4 class="clinic-name">{0}</h4>' +
             '<div class="info-item">' +
                 '<i class="fas fa-globe-americas"></i>' +
                 '<a id="clinic-website" href="">{1}</a>' +
@@ -88,7 +88,7 @@ function AddInfoWindowToMarker(marker, clinic) {
     var phone = clinic.contacts;
     var address = clinic.address;
 
-    contentString.
+    const contentString = pattern.
         replace("{0}", name).
         replace("{1}", website).
         replace("{2}", phone).
