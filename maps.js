@@ -4,6 +4,7 @@ let clickedClinic = false;
 var map;
 var markers;
 var cluster;
+var closeInfoWindowWithTimeout;
 
 if (google != undefined && map == undefined)
     initMap();
@@ -18,6 +19,7 @@ function initMap() {
 function loadMarkers() {
     markers = [];
     const infowindow = new google.maps.InfoWindow();
+    infowindow.mouseover(() => clearTimeout(closeMarkerInfoWithTimeout));
 
     Object.keys(databaseData).forEach(function (key) {
 
@@ -101,7 +103,7 @@ function AddInfoWindowToMarker(marker, clinic, infowindow) {
     });
 
     marker.addListener('mouseout', function() {
-        infowindow.close();
+        closeInfoWindowWithTimeout = setTimeout(() => infowindow.close(), 1000);
     });
 }
 
