@@ -4,7 +4,6 @@ let clickedClinic = false;
 var map;
 var markers;
 var cluster;
-var infoWindowElement;
 var closeInfoWindowWithTimeout;
 
 if (google != undefined && map == undefined)
@@ -21,7 +20,7 @@ function loadMarkers() {
     markers = [];
     const infowindow = new google.maps.InfoWindow();
     infowindow.addListener('domready', () => {
-        infoWindowElement = document.querySelector('.gm-style .gm-style-iw');
+        var infoWindowElement = document.querySelector('.gm-style .gm-style-iw');
         infoWindowElement.mouseover(() => clearTimeout(closeMarkerInfoWithTimeout));
         infowindowelement.mouseleave(() => infowindow.close(map, marker));
     });
