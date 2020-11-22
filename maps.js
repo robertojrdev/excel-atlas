@@ -66,8 +66,8 @@ function loadMarkers() {
 
 function AddInfoWindowToMarker(marker, clinic) {
     const pattern = 
-        '<div class="description-block">' +
-            '<h4 class="clinic-name" style="margin-top: 0px">{0}</h4>' +
+        '<div class="description-block" style="padding: 0px">' +
+            '<h4 class="clinic-name" style="padding-top: 0px">{0}</h4>' +
             '<div class="info-item">' +
                 '<i class="fas fa-globe-americas"></i>' +
                 '<a id="clinic-website" href="">{1}</a>' +
@@ -105,6 +105,17 @@ function AddInfoWindowToMarker(marker, clinic) {
     // marker.addListener('mouseout', function() {
     //     infowindow.close();
     // });
+
+    infowindow.addListener('mouseover', function () {
+        infowindow.isOver = true;
+        console.log("Mouse over info window");
+    });
+
+    infowindow.addListener('mouseout', function() {
+        infowindow.close();
+    });
+
+    
 }
 
 function centerMap() {
