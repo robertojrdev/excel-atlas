@@ -19,7 +19,9 @@ function initMap() {
 function loadMarkers() {
     markers = [];
     const infowindow = new google.maps.InfoWindow();
-    infowindow.mouseover(() => clearTimeout(closeMarkerInfoWithTimeout));
+    // infowindow.addListener('domready', () => {
+    //     infowindowelement.parent().parent().parent().mouseleave(() => infowindow.close(map, marker));
+    // });
 
     Object.keys(databaseData).forEach(function (key) {
 
