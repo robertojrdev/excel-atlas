@@ -5,6 +5,7 @@ var map;
 var markers;
 var cluster;
 var closeInfoWindowWithTimeout;
+var frame = document.getElementById("iframe-map");
 
 if (google != undefined && map == undefined)
     initMap();
@@ -20,7 +21,8 @@ function loadMarkers() {
     markers = [];
     const infowindow = new google.maps.InfoWindow();
     infowindow.addListener('domready', () => {
-        var infoWindowElement = document.querySelector('.gm-style .gm-style-iw');
+        console.log("DOM READY");
+        var infoWindowElement = frame.querySelector('.gm-style .gm-style-iw');
         infoWindowElement.mouseover(() => clearTimeout(closeMarkerInfoWithTimeout));
         infowindowelement.mouseleave(() => infowindow.close(map, marker));
     });
