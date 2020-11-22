@@ -102,9 +102,9 @@ function AddInfoWindowToMarker(marker, clinic) {
         infowindow.open(map, marker);
     });
 
-    marker.addListener('mouseout', function() {
-        infowindow.close();
-    });
+    // marker.addListener('mouseout', function() {
+    //     infowindow.close();
+    // });
 }
 
 function centerMap() {
