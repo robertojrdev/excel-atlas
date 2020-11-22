@@ -17,6 +17,7 @@ function initMap() {
 
 function loadMarkers() {
     markers = [];
+    const infowindow = new google.maps.InfoWindow();
 
     Object.keys(databaseData).forEach(function (key) {
 
@@ -54,7 +55,7 @@ function loadMarkers() {
                 changeDescriptions(item);
             });
 
-            AddInfoWindowToMarker(item.marker, item);
+            AddInfoWindowToMarker(item.marker, item, infowindow);
 
             markers.push(item.marker);
         }
@@ -64,8 +65,7 @@ function loadMarkers() {
     //     { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 }
 
-var currentInfoWindow;
-function AddInfoWindowToMarker(marker, clinic) {
+function AddInfoWindowToMarker(marker, clinic, infowindow) {
     const pattern = 
         '<div class="description-block" style="padding: 0px">' +
             '<h4 class="clinic-name" style="padding-top: 0px">{0}</h4>' +
@@ -95,21 +95,14 @@ function AddInfoWindowToMarker(marker, clinic) {
         replace("{2}", phone).
         replace("{3}", address);
 
-    const infowindow = new google.maps.InfoWindow({
-        content: contentString,
-    });
-
     marker.addListener('mouseover', function () {
-        if(currentInfoWindow != null && currentInfoWindow != undefined)
-            currentInfoWindow.close();
-
-        currentInfoWindow = infowindow;
+        infowindow.setContent(contentString);
         infowindow.open(map, marker);
     });
 
-    // marker.addListener('mouseout', function() {
-    //     infowindow.close();
-    // });
+    marker.addListener('mouseout', function() {
+        infowindow.close();
+    });
 }
 
 function centerMap() {
