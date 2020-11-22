@@ -118,8 +118,8 @@ function zoomInMarker(marker) {
     var bounds = new google.maps.LatLngBounds();
     bounds.extend(marker.position);
     map.fitBounds(bounds);
-    map.setZoom(18);
     centerMap();
+    map.setZoom(18);
 }
 
 function showMarkers(markersToDisplay) {
