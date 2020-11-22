@@ -5,7 +5,6 @@ var map;
 var markers;
 var cluster;
 var closeInfoWindowWithTimeout;
-var frame = document.getElementById("iframe-map");
 
 if (google != undefined && map == undefined)
     initMap();
@@ -20,12 +19,6 @@ function initMap() {
 function loadMarkers() {
     markers = [];
     const infowindow = new google.maps.InfoWindow();
-    infowindow.addListener('domready', () => {
-        console.log("DOM READY");
-        var infoWindowElement = frame.querySelector('.gm-style .gm-style-iw');
-        infoWindowElement.mouseover(() => clearTimeout(closeMarkerInfoWithTimeout));
-        infowindowelement.mouseleave(() => infowindow.close(map, marker));
-    });
 
     Object.keys(databaseData).forEach(function (key) {
 
@@ -106,6 +99,10 @@ function AddInfoWindowToMarker(marker, clinic, infowindow) {
     marker.addListener('mouseover', function () {
         infowindow.setContent(contentString);
         infowindow.open(map, marker);
+    });
+
+    marker.addListener('mouseout', function() {
+        infowindow.close();
     });
 
     // marker.addListener('mouseout', function() {
