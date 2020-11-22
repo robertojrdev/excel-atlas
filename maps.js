@@ -64,6 +64,7 @@ function loadMarkers() {
     //     { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 }
 
+var currentInfoWindow;
 function AddInfoWindowToMarker(marker, clinic) {
     const pattern = 
         '<div class="description-block" style="padding: 0px">' +
@@ -99,23 +100,16 @@ function AddInfoWindowToMarker(marker, clinic) {
     });
 
     marker.addListener('mouseover', function () {
+        if(currentInfoWindow != null && currentInfoWindow != undefined)
+            currentInfoWindow.close();
+
+        currentInfoWindow = infowindow;
         infowindow.open(map, marker);
     });
 
     // marker.addListener('mouseout', function() {
     //     infowindow.close();
     // });
-
-    infowindow.addListener('mouseover', function () {
-        infowindow.isOver = true;
-        console.log("Mouse over info window");
-    });
-
-    infowindow.addListener('mouseout', function() {
-        infowindow.close();
-    });
-
-    
 }
 
 function centerMap() {
