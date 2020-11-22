@@ -117,11 +117,9 @@ function centerMap() {
 function zoomInMarker(marker) {
     var bounds = new google.maps.LatLngBounds();
     bounds.extend(marker.position);
-    // map.fitBounds(bounds);
     map.setCenter(marker.position);
     map.setZoom(18);
     centerMap();
-    // setTimeout(() => map.setZoom(18), 250)
 }
 
 function showMarkers(markersToDisplay) {
