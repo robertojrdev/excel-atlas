@@ -85,9 +85,9 @@ function loadMarkers() {
                 infowindow.open(map, item.marker);
             });
 
-            item.marker.addListener('mouseout', function() {
-                infowindow.close();
-            });
+            // item.marker.addListener('mouseout', function() {
+            //     infowindow.close();
+            // });
 
             markers.push(item.marker);
         }
