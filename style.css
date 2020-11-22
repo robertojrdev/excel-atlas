@@ -184,6 +184,10 @@ p {
 
 #typology {}
 
+html {
+    overflow: hidden;
+}
+
 body,
 html,
 .page-container {
