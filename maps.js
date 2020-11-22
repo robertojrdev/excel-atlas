@@ -20,8 +20,8 @@ function initMap() {
 function loadMarkers() {
     markers = [];
     const infowindow = new google.maps.InfoWindow();
-    infoWindowElement = document.querySelector('.gm-style .gm-style-iw');
     infowindow.addListener('domready', () => {
+        infoWindowElement = document.querySelector('.gm-style .gm-style-iw');
         infoWindowElement.mouseover(() => clearTimeout(closeMarkerInfoWithTimeout));
         infowindowelement.mouseleave(() => infowindow.close(map, marker));
     });
