@@ -37,9 +37,11 @@ function loadMarkers() {
                 });
             }
             else {
+                let color = item.pincolor;
+                let iconString = "https://github.com/robertojrdev/excel-atlas/blob/master/icons/" + color + ".png?raw=true";
                 item.marker = new google.maps.Marker({
                     position: pos,
-                    icon: "https://github.com/robertojrdev/excel-atlas/blob/master/turisticicon.png?raw=true"
+                    icon: iconString
                 });
             }
 
